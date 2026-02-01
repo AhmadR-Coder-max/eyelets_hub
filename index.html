@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PrecisionFix Industries — Industrial Fastener Supplier</title>
+<meta name="description" content="PrecisionFix Industries is a trusted industrial fastener supplier specializing in metal eyelets, washers, grommets, rivets, snap buttons, and custom metal fasteners for bulk orders." />
+<meta name="keywords" content="fastener supplier, metal eyelets supplier, industrial washers, metal grommets, rivet supplier, industrial hardware components, snap fasteners, custom metal fasteners" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ─── RESET & VARIABLES ─── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --navy:       #0f1b2d;
+    --navy-mid:   #162236;
+    --navy-light: #1e3050;
+    --steel:      #3a4a5e;
+    --steel-light:#5a7089;
+    --chrome:     #c8cdd4;
+    --chrome-dim: #9aa5b4;
+    --white:      #f4f6f8;
+    --off-white:  #e8ecf0;
+    --accent:     #d4a84b;
+    --accent-dim: #b8913d;
+    --text-dark:  #1a2332;
+    --text-mid:   #4a5a6e;
+    --text-light: #7a8fa5;
+    --radius:     6px;
+    --font-head:  'Barlow Condensed', sans-serif;
+    --font-body:  'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content:'';
+    position:fixed; inset:0; z-index:999;
+    pointer-events:none; opacity:.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h1,h2,h3,h4 { font-family: var(--font-head); text-transform: uppercase; letter-spacing:.02em; }
+  p, li, label, input, textarea, button, a { font-family: var(--font-body); }
+
+  /* ─── UTILITY ─── */
+  .container { width:100%; max-width:1180px; margin:0 auto; padding:0 24px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+  /* ═══════════════════════════════════════════
+       NAVIGATION
+     ═══════════════════════════════════════════ */
+  .nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(15,27,45,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212,168,75,.18);
+    transition: box-shadow .3s;
+  }
+  .nav--scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.35); }
+  .nav__inner {
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px;
+  }
+  .nav__logo {
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+  }
+  .nav__logo-mark {
+    width:34px; height:34px;
+    background: var(--accent);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav__logo-mark span {
+    font-family: var(--font-head);
+    font-weight:800; font-size:15px; color:#fff;
+    margin-top:-1px;
+  }
+  .nav__brand {
+    font-family: var(--font-head);
+    font-weight:700; font-size:19px;
+    color:#fff; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .nav__brand em { color: var(--accent); font-style:normal; }
+  .nav__links {
+    display:flex; align-items:center; gap:28px; list-style:none;
+  }
+  .nav__links a {
+    color: var(--chrome-dim);
+    text-decoration:none; font-size:13px; font-weight:500;
+    letter-spacing:.1em; text-transform:uppercase;
+    transition: color .25s;
+    position:relative;
+  }
+  .nav__links a::after {
+    content:''; position:absolute; bottom:-4px; left:0; right:0;
+    height:1px; background: var(--accent); transform: scaleX(0);
+    transition: transform .3s;
+  }
+  .nav__links a:hover { color:#fff; }
+  .nav__links a:hover::after { transform: scaleX(1); }
+  .nav__cta {
+    background: var(--accent); color:#fff !important;
+    padding:8px 18px; border-radius: var(--radius);
+    font-weight:600 !important; font-size:12px !important;
+    letter-spacing:.12em !important;
+  }
+  .nav__cta::after { display:none !important; }
+  .nav__cta:hover { background: var(--accent-dim); }
+
+  /* Mobile toggle */
+  .nav__toggle {
+    display:none; background:none; border:none; cursor:pointer;
+    flex-direction:column; gap:5px; padding:6px;
+  }
+  .nav__toggle span { display:block; width:24px; height:2px; background:#fff; border-radius:2px; transition:.3s; }
+
+  /* ═══════════════════════════════════════════
+       HERO
+     ═══════════════════════════════════════════ */
+  .hero {
+    position:relative;
+    min-height: 100vh;
+    background: var(--navy);
+    display:flex; align-items:center;
+    overflow:hidden;
+  }
+  /* Geometric grid background */
+  .hero__grid {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 50%, black 20%, transparent 80%);
+  }
+  /* Diagonal accent strip */
+  .hero__strip {
+    position:absolute; top:0; right:-10%; width:55%; height:100%;
+    background: linear-gradient(135deg, transparent 48%, rgba(212,168,75,.06) 48%, rgba(212,168,75,.06) 52%, transparent 52%);
+  }
+  /* Large decorative bolt graphic */
+  .hero__bolt {
+    position:absolute; right:6%; top:50%; transform:translateY(-50%);
+    width:min(380px, 42vw); height:min(380px, 42vw);
+    opacity:.07;
+  }
+  .hero__content {
+    position:relative; z-index:2;
+    width:100%; max-width:680px; padding:0 24px;
+    margin-left: max(24px, calc((100vw - 1180px)/2 + 24px));
+  }
+  .hero__eyebrow {
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:11px; font-weight:600; letter-spacing:.22em;
+    text-transform:uppercase; color: var(--accent);
+    margin-bottom:28px;
+  }
+  .hero__eyebrow::before {
+    content:''; display:block; width:32px; height:2px; background: var(--accent);
+  }
+  .hero__title {
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight:800; line-height:1.05; color:#fff;
+    margin-bottom:24px;
+  }
+  .hero__title .line2 { color: var(--accent); }
+  .hero__sub {
+    font-size:16px; font-weight:300; line-height:1.7;
+    color: var(--chrome-dim); max-width:520px; margin-bottom:40px;
+  }
+  .hero__actions { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px; border-radius: var(--radius);
+    font-size:13px; font-weight:600; letter-spacing:.1em;
+    text-transform:uppercase; text-decoration:none;
+    transition: all .25s; cursor:pointer; border:none;
+  }
+  .btn--primary {
+    background: var(--accent); color:#fff;
+  }
+  .btn--primary:hover { background: var(--accent-dim); transform:translateY(-1px); box-shadow:0 6px 20px rgba(212,168,75,.3); }
+  .btn--outline {
+    background:transparent; color:#fff;
+    border:1px solid rgba(255,255,255,.25);
+  }
+  .btn--outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn svg { width:16px; height:16px; }
+
+  /* Hero stats bar */
+  .hero__stats {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    background: rgba(15,27,45,.7);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,.07);
+  }
+  .hero__stats-inner {
+    display:flex; justify-content:center; gap:0;
+  }
+  .hero__stat {
+    flex:1; max-width:220px;
+    padding:22px 16px; text-align:center;
+    border-right:1px solid rgba(255,255,255,.07);
+  }
+  .hero__stat:last-child { border-right:none; }
+  .hero__stat-num {
+    font-family: var(--font-head);
+    font-size:26px; font-weight:700; color: var(--accent);
+  }
+  .hero__stat-label {
+    font-size:11px; color: var(--chrome-dim);
+    letter-spacing:.12em; text-transform:uppercase; margin-top:4px;
+  }
+
+  /* ═══════════════════════════════════════════
+       ABOUT US
+     ═══════════════════════════════════════════ */
+  .about {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .section-header {
+    margin-bottom:56px;
+  }
+  .section-header__eyebrow {
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:11px; font-weight:600; letter-spacing:.22em;
+    text-transform:uppercase; color: var(--accent);
+    margin-bottom:14px;
+  }
+  .section-header__eyebrow::before {
+    content:''; display:block; width:24px; height:2px; background: var(--accent);
+  }
+  .section-header h2 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight:700; color: var(--navy); line-height:1.15;
+  }
+  .about__grid {
+    display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:center;
+  }
+  .about__visual {
+    position:relative;
+  }
+  .about__img-wrap {
+    width:100%; aspect-ratio:4/3;
+    background: var(--navy-mid);
+    border-radius:8px; overflow:hidden; position:relative;
+  }
+  /* Simulated product texture */
+  .about__img-wrap::before {
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle 80px at 30% 40%, rgba(212,168,75,.12) 0%, transparent 70%),
+      radial-gradient(circle 50px at 70% 60%, rgba(212,168,75,.08) 0%, transparent 70%),
+      repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(255,255,255,.02) 18px, rgba(255,255,255,.02) 36px);
+  }
+  .about__img-wrap::after {
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, rgba(26,58,95,.5) 0%, transparent 60%);
+  }
+  /* Floating badge */
+  .about__badge {
+    position:absolute; bottom:-18px; right:-18px; z-index:2;
+    background: var(--accent); color:#fff;
+    padding:18px 22px; border-radius:8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.25);
+    text-align:center;
+  }
+  .about__badge-num { font-family: var(--font-head); font-size:32px; font-weight:800; }
+  .about__badge-txt { font-size:11px; letter-spacing:.1em; text-transform:uppercase; opacity:.85; margin-top:2px; }
+  /* Decorative corner marks */
+  .about__corner {
+    position:absolute; width:28px; height:28px;
+    border-color: var(--accent); border-style:solid;
+  }
+  .about__corner--tl { top:-8px; left:-8px; border-width:2px 0 0 2px; }
+  .about__corner--br { bottom:-8px; right:-8px; border-width:0 2px 2px 0; }
+
+  .about__text { }
+  .about__intro {
+    font-size:17px; font-weight:500; line-height:1.7;
+    color: var(--text-dark); margin-bottom:24px;
+  }
+  .about__desc {
+    font-size:15px; line-height:1.8; color: var(--text-mid); margin-bottom:32px;
+  }
+  .about__features { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .about__feature {
+    display:flex; align-items:flex-start; gap:12px;
+  }
+  .about__feature-icon {
+    width:38px; height:38px; min-width:38px;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about__feature-icon svg { width:18px; height:18px; stroke: var(--accent); fill:none; stroke-width:2; }
+  .about__feature h4 {
+    font-size:13px; font-weight:700; color: var(--navy); margin-bottom:3px;
+    letter-spacing:.04em;
+  }
+  .about__feature p { font-size:12.5px; color: var(--text-light); line-height:1.5; }
+
+  /* ═══════════════════════════════════════════
+       PRODUCTS
+     ═══════════════════════════════════════════ */
+  .products {
+    padding:100px 0;
+    background: var(--off-white);
+    position:relative;
+  }
+  .products::before {
+    content:''; position:absolute; top:0; left:0; right:0;
+    height:1px; background: linear-gradient(90deg, transparent, var(--chrome), transparent);
+  }
+  .products__header { text-align:center; }
+  .products__header .section-header__eyebrow { justify-content:center; }
+  .products__sub {
+    font-size:15px; color: var(--text-mid); max-width:600px;
+    margin:16px auto 0; line-height:1.7;
+  }
+  .products__grid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:24px; margin-top:56px;
+  }
+  .product-card {
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,.06);
+    transition: transform .3s, box-shadow .3s;
+    position:relative;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(15,27,45,.12);
+  }
+  .product-card__visual {
+    height:180px;
+    background: var(--navy-mid);
+    position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .product-card__visual svg {
+    width:72px; height:72px; opacity:.55;
+    transition: transform .4s, opacity .4s;
+  }
+  .product-card:hover .product-card__visual svg {
+    transform: scale(1.08); opacity:.75;
+  }
+  /* Subtle pattern overlay per card */
+  .product-card__visual::after {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.25) 100%);
+  }
+  .product-card__body { padding:24px; }
+  .product-card__tag {
+    display:inline-block;
+    font-size:10px; font-weight:600; letter-spacing:.14em;
+    text-transform:uppercase; color: var(--accent);
+    background: rgba(212,168,75,.1); padding:4px 10px; border-radius:20px;
+    margin-bottom:12px;
+  }
+  .product-card__title {
+    font-size:18px; font-weight:700; color: var(--navy);
+    margin-bottom:10px;
+  }
+  .product-card__desc {
+    font-size:13px; color: var(--text-mid); line-height:1.6; margin-bottom:16px;
+  }
+  .product-card__specs {
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .product-card__spec {
+    font-size:11px; color: var(--steel-light);
+    background: var(--off-white); padding:4px 10px;
+    border-radius:3px; border:1px solid rgba(0,0,0,.06);
+  }
+
+  /* ═══════════════════════════════════════════
+       INDUSTRIES SERVED
+     ═══════════════════════════════════════════ */
+  .industries {
+    padding:100px 0;
+    background: var(--navy);
+    position:relative; overflow:hidden;
+  }
+  .industries::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .industries .section-header { position:relative; z-index:1; }
+  .industries .section-header h2 { color:#fff; }
+  .industries__grid {
+    display:grid; grid-template-columns: repeat(5, 1fr);
+    gap:20px; position:relative; z-index:1;
+  }
+  .industry-card {
+    background: rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px; padding:32px 20px;
+    text-align:center;
+    transition: background .3s, border-color .3s, transform .3s;
+  }
+  .industry-card:hover {
+    background: rgba(212,168,75,.08);
+    border-color: rgba(212,168,75,.3);
+    transform: translateY(-3px);
+  }
+  .industry-card__icon {
+    width:52px; height:52px; margin:0 auto 18px;
+    background: rgba(212,168,75,.12);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .industry-card__icon svg { width:24px; height:24px; stroke: var(--accent); fill:none; stroke-width:1.8; }
+  .industry-card h3 {
+    font-size:15px; font-weight:700; color:#fff;
+    margin-bottom:10px; letter-spacing:.03em;
+  }
+  .industry-card p {
+    font-size:12.5px; color: var(--chrome-dim); line-height:1.6;
+  }
+
+  /* ═══════════════════════════════════════════
+       WHY CHOOSE US
+     ═══════════════════════════════════════════ */
+  .why {
+    padding:100px 0;
+    background: var(--white);
+  }
+  .why__layout {
+    display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:start;
+  }
+  .why__left { }
+  .why__list { list-style:none; }
+  .why__item {
+    display:flex; gap:20px; align-items:flex-start;
+    padding:28px 0;
+    border-bottom:1px solid var(--off-white);
+  }
+  .why__item:first-child { padding-top:0; }
+  .why__num {
+    font-family: var(--font-head);
+    font-size:28px; font-weight:800; color: var(--accent);
+    line-height:1; min-width:36px;
+  }
+  .why__item h3 {
+    font-size:17px; font-weight:700; color: var(--navy);
+    margin-bottom:6px;
+  }
+  .why__item p { font-size:13.5px; color: var(--text-mid); line-height:1.6; }
+
+  .why__right {
+    position:sticky; top:100px;
+  }
+  .why__panel {
+    background: var(--navy);
+    border-radius:12px; padding:48px 36px;
+    position:relative; overflow:hidden;
+  }
+  .why__panel::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:160px; height:160px;
+    border-radius:50%;
+    border:2px solid rgba(212,168,75,.15);
+  }
+  .why__panel::after {
+    content:''; position:absolute; top:-10px; right:-10px;
+    width:100px; height:100px;
+    border-radius:50%;
+    border:1px solid rgba(212,168,75,.1);
+  }
+  .why__panel-title {
+    font-size:13px; font-weight:600; color: var(--accent);
+    letter-spacing:.16em; text-transform:uppercase; margin-bottom:20px;
+    position:relative; z-index:1;
+  }
+  .why__panel h2 {
+    font-size:28px; color:#fff; margin-bottom:18px;
+    position:relative; z-index:1;
+  }
+  .why__panel p {
+    font-size:14px; color: var(--chrome-dim); line-height:1.7;
+    position:relative; z-index:1;
+  }
+  .why__panel-cta {
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:28px; color: var(--accent); font-size:13px;
+    font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    text-decoration:none; transition:gap .25s;
+    position:relative; z-index:1;
+  }
+  .why__panel-cta:hover { gap:14px; }
+  .why__panel-cta svg { width:16px; height:16px; }
+
+  /* ═══════════════════════════════════════════
+       CUSTOM / OEM
+     ═══════════════════════════════════════════ */
+  .oem {
+    padding:100px 0;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    position:relative; overflow:hidden;
+  }
+  /* Decorative large hexagon */
+  .oem__hex {
+    position:absolute; right:-12%; top:50%; transform:translateY(-50%);
+    width:520px; height:520px; opacity:.04;
+  }
+  .oem__inner {
+    display:grid; grid-template-columns: 1.1fr 1fr; gap:80px;
+    align-items:center; position:relative; z-index:1;
+  }
+  .oem__content .section-header h2 { color:#fff; }
+  .oem__desc {
+    font-size:15px; color: var(--chrome-dim); line-height:1.8; margin-bottom:36px;
+  }
+  .oem__pillars {
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  .oem__pillar {
+    background: rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px; padding:22px 18px;
+    transition: background .3s;
+  }
+  .oem__pillar:hover { background: rgba(255,255,255,.08); }
+  .oem__pillar-icon {
+    width:36px; height:36px;
+    background: rgba(212,168,75,.15);
+    border-radius:6px; margin-bottom:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .oem__pillar-icon svg { width:18px; height:18px; stroke: var(--accent); fill:none; stroke-width:2; }
+  .oem__pillar h4 { font-size:14px; color:#fff; margin-bottom:6px; }
+  .oem__pillar p { font-size:12.5px; color: var(--chrome-dim); line-height:1.5; }
+
+  .oem__visual {
+    display:flex; flex-direction:column; gap:24px;
+  }
+  .oem__spec-row {
+    display:flex; align-items:center; gap:20px;
+    background: rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:8px; padding:20px 24px;
+    transition: border-color .3s;
+  }
+  .oem__spec-row:hover { border-color: rgba(212,168,75,.3); }
+  .oem__spec-num {
+    font-family: var(--font-head);
+    font-size:22px; font-weight:800; color: var(--accent);
+    min-width:40px; text-align:center;
+  }
+  .oem__spec-row h4 { font-size:14px; color:#fff; margin-bottom:3px; }
+  .oem__spec-row p { font-size:12.5px; color: var(--chrome-dim); }
+
+  /* ═══════════════════════════════════════════
+       CONTACT
+     ═══════════════════════════════════════════ */
+  .contact {
+    padding:100px 0;
+    background: var(--off-white);
+    position:relative;
+  }
+  .contact::before {
+    content:''; position:absolute; top:0; left:0; right:0;
+    height:1px; background: linear-gradient(90deg, transparent, var(--chrome), transparent);
+  }
+  .contact__header { text-align:center; margin-bottom:16px; }
+  .contact__header .section-header__eyebrow { justify-content:center; }
+  .contact__header h2 { color: var(--navy); }
+  .contact__tagline {
+    text-align:center; font-size:15px; color: var(--text-mid);
+    max-width:580px; margin:14px auto 56px; line-height:1.7;
+  }
+  .contact__grid {
+    display:grid; grid-template-columns: 1fr 1.2fr; gap:64px; align-items:start;
+  }
+  /* Left: info cards */
+  .contact__info { display:flex; flex-direction:column; gap:20px; }
+  .contact__card {
+    background:#fff; border-radius:8px; padding:24px;
+    border:1px solid rgba(0,0,0,.06);
+    display:flex; gap:18px; align-items:flex-start;
+  }
+  .contact__card-icon {
+    width:44px; height:44px; min-width:44px;
+    background: var(--navy);
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .contact__card-icon svg { width:20px; height:20px; stroke: var(--accent); fill:none; stroke-width:2; }
+  .contact__card h4 { font-size:13px; color: var(--text-light); letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; }
+  .contact__card p { font-size:15px; color: var(--navy); font-weight:500; }
+  .contact__card a { color: var(--navy); text-decoration:none; font-weight:500; }
+  .contact__card a:hover { color: var(--accent); }
+
+  /* CTA strip */
+  .contact__cta-strip {
+    background: var(--accent); border-radius:8px;
+    padding:24px; text-align:center;
+  }
+  .contact__cta-strip p {
+    font-size:14px; color:#fff; font-weight:600;
+    letter-spacing:.04em;
+  }
+  .contact__cta-strip span { opacity:.8; font-weight:400; font-size:12.5px; display:block; margin-top:4px; }
+
+  /* Right: form */
+  .contact__form-wrap {
+    background:#fff; border-radius:12px; padding:40px;
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  }
+  .contact__form-title {
+    font-size:22px; font-weight:700; color: var(--navy); margin-bottom:6px;
+  }
+  .contact__form-sub {
+    font-size:13.5px; color: var(--text-mid); margin-bottom:28px;
+  }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-group { margin-bottom:18px; }
+  .form-group label {
+    display:block; font-size:12px; font-weight:600;
+    color: var(--text-mid); letter-spacing:.08em; text-transform:uppercase;
+    margin-bottom:7px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width:100%; padding:12px 14px;
+    border:1px solid #dde3ea;
+    border-radius: var(--radius);
+    font-size:14px; color: var(--text-dark);
+    background:#fff;
+    transition: border-color .25s, box-shadow .25s;
+    font-family: var(--font-body);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline:none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212,168,75,.15);
+  }
+  .form-group textarea { resize:vertical; min-height:100px; }
+  .form-group select { appearance:none; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%237a8fa5' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+  .form-submit {
+    width:100%; padding:14px;
+    background: var(--navy); color:#fff;
+    border:none; border-radius: var(--radius);
+    font-size:13px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; cursor:pointer;
+    transition: background .25s, transform .15s;
+    margin-top:8px;
+    font-family: var(--font-body);
+  }
+  .form-submit:hover { background: var(--navy-light); transform:translateY(-1px); }
+  .form-note {
+    text-align:center; margin-top:16px;
+    font-size:11.5px; color: var(--text-light);
+  }
+
+  /* ═══════════════════════════════════════════
+       FOOTER
+     ═══════════════════════════════════════════ */
+  .footer {
+    background: var(--navy);
+    padding:60px 0 28px;
+  }
+  .footer__grid {
+    display:grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap:48px; padding-bottom:48px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .footer__brand { }
+  .footer__logo {
+    display:flex; align-items:center; gap:10px; margin-bottom:18px; text-decoration:none;
+  }
+  .footer__logo .nav__logo-mark { width:28px; height:28px; }
+  .footer__logo .nav__logo-mark span { font-size:12px; }
+  .footer__logo .nav__brand { font-size:16px; }
+  .footer__brand p {
+    font-size:13px; color: var(--chrome-dim); line-height:1.7; max-width:280px;
+  }
+  .footer__col h4 {
+    font-size:11px; font-weight:700; color: var(--accent);
+    letter-spacing:.18em; text-transform:uppercase; margin-bottom:20px;
+  }
+  .footer__col ul { list-style:none; }
+  .footer__col li { margin-bottom:10px; }
+  .footer__col a {
+    font-size:13.5px; color: var(--chrome-dim); text-decoration:none;
+    transition: color .25s;
+  }
+  .footer__col a:hover { color:#fff; }
+  .footer__bottom {
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:28px;
+  }
+  .footer__bottom p { font-size:12px; color: var(--steel-light); }
+
+  /* ═══════════════════════════════════════════
+       SCROLL REVEAL ANIMATIONS
+     ═══════════════════════════════════════════ */
+  .reveal {
+    opacity:0; transform:translateY(28px);
+    transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal--visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:.1s; }
+  .reveal-delay-2 { transition-delay:.2s; }
+  .reveal-delay-3 { transition-delay:.3s; }
+  .reveal-delay-4 { transition-delay:.4s; }
+
+  /* ═══════════════════════════════════════════
+       RESPONSIVE
+     ═══════════════════════════════════════════ */
+  @media (max-width:1024px) {
+    .products__grid { grid-template-columns:repeat(2,1fr); }
+    .industries__grid { grid-template-columns:repeat(3,1fr); }
+    .about__grid { grid-template-columns:1fr; gap:40px; }
+    .why__layout { grid-template-columns:1fr; }
+    .why__right { position:static; }
+    .oem__inner { grid-template-columns:1fr; }
+    .contact__grid { grid-template-columns:1fr; }
+    .footer__grid { grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:768px) {
+    .nav__links { display:none; position:fixed; top:68px; left:0; right:0; bottom:0; background: var(--navy); flex-direction:column; justify-content:center; align-items:center; gap:24px; padding:40px; }
+    .nav__links--open { display:flex; }
+    .nav__toggle { display:flex; }
+    .products__grid { grid-template-columns:1fr; }
+    .industries__grid { grid-template-columns:repeat(2,1fr); }
+    .form-row { grid-template-columns:1fr; }
+    .about__features { grid-template-columns:1fr; }
+    .oem__pillars { grid-template-columns:1fr; }
+    .hero__content { margin-left:0; padding:0 24px; }
+    .hero__stats-inner { flex-wrap:wrap; justify-content:center; }
+    .hero__stat { flex:0 0 auto; width:calc(50% - 10px); }
+    .contact__form-wrap { padding:28px 20px; }
+    .footer__grid { grid-template-columns:1fr; gap:32px; }
+  }
+  @media (max-width:480px) {
+    .industries__grid { grid-template-columns:1fr; }
+    .hero__stat { width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <div class="nav__logo-mark"><span>PF</span></div>
+        <span class="nav__brand"><em>Precision</em>Fix</span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#oem">OEM</a></li>
+        <li><a href="#contact" class="nav__cta">Contact Us</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero__grid"></div>
+  <div class="hero__strip"></div>
+
+  <!-- Large decorative SVG bolt silhouette -->
+  <svg class="hero__bolt" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" stroke="white" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" stroke="white" stroke-width="1"/>
+    <circle cx="100" cy="100" r="50" stroke="white" stroke-width="3" stroke-dasharray="8 6"/>
+    <circle cx="100" cy="100" r="30" fill="white"/>
+    <rect x="88" y="88" width="24" height="24" rx="4" fill="none" stroke="white" stroke-width="2"/>
+    <!-- Thread lines -->
+    <line x1="100" y1="0" x2="100" y2="55" stroke="white" stroke-width="1" opacity="0.4"/>
+    <line x1="100" y1="145" x2="100" y2="200" stroke="white" stroke-width="1" opacity="0.4"/>
+    <line x1="0" y1="100" x2="55" y2="100" stroke="white" stroke-width="1" opacity="0.4"/>
+    <line x1="145" y1="100" x2="200" y2="100" stroke="white" stroke-width="1" opacity="0.4"/>
+  </svg>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">Industrial Fastener Supplier</div>
+    <h1 class="hero__title">
+      Reliable Fasteners.<br>
+      <span class="line2">Precision Manufacturing.</span>
+    </h1>
+    <p class="hero__sub">
+      We supply industrial-grade metal eyelets, washers, grommets, rivets, snap buttons, and custom metal fasteners — engineered for durability, built for bulk.
+    </p>
+    <div class="hero__actions">
+      <a href="#products" class="btn btn--primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        View Products
+      </a>
+      <a href="#contact" class="btn btn--outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Contact for Bulk Orders
+      </a>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero__stats">
+    <div class="container">
+      <div class="hero__stats-inner">
+        <div class="hero__stat">
+          <div class="hero__stat-num">15+</div>
+          <div class="hero__stat-label">Years of Supply Excellence</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">200+</div>
+          <div class="hero__stat-label">Product Variants</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">50+</div>
+          <div class="hero__stat-label">Industries Served</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">99%</div>
+          <div class="hero__stat-label">On-Time Delivery Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT US ─── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__visual reveal">
+        <div class="about__corner about__corner--tl"></div>
+        <div class="about__img-wrap">
+          <!-- Abstract industrial graphic -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1;" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <!-- Eyelet rings -->
+            <circle cx="80" cy="100" r="38" fill="none" stroke="rgba(212,168,75,0.3)" stroke-width="3"/>
+            <circle cx="80" cy="100" r="26" fill="none" stroke="rgba(212,168,75,0.18)" stroke-width="2"/>
+            <circle cx="80" cy="100" r="10" fill="rgba(212,168,75,0.25)"/>
+            <!-- Washer -->
+            <circle cx="200" cy="160" r="44" fill="none" stroke="rgba(180,195,215,0.25)" stroke-width="4"/>
+            <circle cx="200" cy="160" r="14" fill="rgba(180,195,215,0.15)"/>
+            <!-- Grommet -->
+            <circle cx="330" cy="80" r="30" fill="none" stroke="rgba(212,168,75,0.2)" stroke-width="3"/>
+            <circle cx="330" cy="80" r="18" fill="none" stroke="rgba(212,168,75,0.12)" stroke-width="2"/>
+            <!-- Rivet hexagon -->
+            <polygon points="310,220 340,205 370,220 370,250 340,265 310,250" fill="none" stroke="rgba(180,195,215,0.2)" stroke-width="2"/>
+            <circle cx="340" cy="232" r="8" fill="rgba(180,195,215,0.15)"/>
+            <!-- Snap button -->
+            <circle cx="120" cy="230" r="22" fill="none" stroke="rgba(212,168,75,0.22)" stroke-width="2.5"/>
+            <circle cx="120" cy="230" r="12" fill="none" stroke="rgba(212,168,75,0.15)" stroke-width="1.5"/>
+            <circle cx="120" cy="230" r="4" fill="rgba(212,168,75,0.3)"/>
+            <!-- Connecting dimension lines -->
+            <line x1="118" y1="60" x2="118" y2="96" stroke="rgba(212,168,75,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="42" y1="100" x2="76" y2="100" stroke="rgba(212,168,75,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="about__corner about__corner--br"></div>
+        <div class="about__badge">
+          <div class="about__badge-num">15+</div>
+          <div class="about__badge-txt">Years Experience</div>
+        </div>
+      </div>
+
+      <div class="about__text reveal reveal-delay-1">
+        <div class="section-header">
+          <div class="section-header__eyebrow">About Us</div>
+          <h2>Precision-Built<br>Supply Partnership</h2>
+        </div>
+        <p class="about__intro">
+          PrecisionFix Industries specialises in the manufacturing and bulk supply of industrial-grade metal fasteners — from standard eyelets and washers to complex custom components.
+        </p>
+        <p class="about__desc">
+          With over a decade of experience serving garment factories, textile units, leather goods producers, and industrial fabricators, we have built a reputation on accurate sizing, durable materials, and dependable delivery. Our goal is not just to supply — it is to be your long-term manufacturing partner.
+        </p>
+        <div class="about__features">
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h4>Accurate Sizing</h4>
+              <p>Tight tolerances and ISO-grade precision on every batch.</p>
+            </div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Durable Materials</h4>
+              <p>Stainless steel, brass, and coated alloys for lasting performance.</p>
+            </div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <h4>Bulk Capability</h4>
+              <p>Scalable production lines ready for high-volume orders.</p>
+            </div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>Dependable Service</h4>
+              <p>On-time delivery and responsive technical support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products__header reveal">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Product Range</div>
+        <h2>Industrial Hardware Components</h2>
+      </div>
+      <p class="products__sub">
+        Every product is manufactured to exacting industrial standards using corrosion-resistant alloys and durable metals — built to perform in demanding environments.
+      </p>
+    </div>
+
+    <div class="products__grid">
+      <!-- Card 1: Metal Eyelets -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #0f1b2d 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <circle cx="40" cy="40" r="34" stroke="#d4a84b" stroke-width="2.5"/>
+            <circle cx="40" cy="40" r="24" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <circle cx="40" cy="40" r="12" fill="#d4a84b" opacity="0.6"/>
+            <circle cx="40" cy="40" r="5" fill="#d4a84b"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Eyelets</span>
+          <h3 class="product-card__title">Metal Eyelets</h3>
+          <p class="product-card__desc">Precision-stamped metal eyelets for garment, leather, and industrial applications. Available in multiple diameters and wall thicknesses.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">Stainless Steel</span>
+            <span class="product-card__spec">Brass</span>
+            <span class="product-card__spec">Coated Steel</span>
+            <span class="product-card__spec">Custom Sizes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Washers -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <circle cx="40" cy="40" r="32" stroke="#9aa5b4" stroke-width="3.5"/>
+            <circle cx="40" cy="40" r="24" stroke="#9aa5b4" stroke-width="2" opacity="0.6"/>
+            <circle cx="40" cy="40" r="10" fill="#9aa5b4" opacity="0.4"/>
+            <!-- Flat washer ring hatching -->
+            <circle cx="40" cy="40" r="28" stroke="#d4a84b" stroke-width="0.7" opacity="0.4" stroke-dasharray="2 4"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Washers</span>
+          <h3 class="product-card__title">Industrial Washers</h3>
+          <p class="product-card__desc">Flat and spring washers engineered to distribute load and prevent loosening. Ideal for heavy-duty machinery and equipment assembly.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">Stainless Steel</span>
+            <span class="product-card__spec">Aluminum</span>
+            <span class="product-card__spec">Corrosion Resistant</span>
+            <span class="product-card__spec">Bulk Supply</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Grommets -->
+      <div class="product-card reveal reveal-delay-3">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #111d30 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <circle cx="40" cy="40" r="30" stroke="#d4a84b" stroke-width="3"/>
+            <circle cx="40" cy="40" r="22" stroke="#d4a84b" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="40" cy="40" r="14" stroke="#9aa5b4" stroke-width="2.5" opacity="0.7"/>
+            <circle cx="40" cy="40" r="7" fill="#d4a84b" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Grommets</span>
+          <h3 class="product-card__title">Metal Grommets</h3>
+          <p class="product-card__desc">Reinforcing grommets designed to protect fabric and material openings from wear, tearing, and environmental exposure.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">Brass</span>
+            <span class="product-card__spec">Stainless Steel</span>
+            <span class="product-card__spec">Anti-Corrosion</span>
+            <span class="product-card__spec">Heavy Duty</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Rivets -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <!-- Rivet body -->
+            <rect x="35" y="12" width="10" height="36" rx="2" fill="#9aa5b4" opacity="0.5"/>
+            <!-- Dome head -->
+            <ellipse cx="40" cy="14" rx="14" ry="6" fill="#d4a84b" opacity="0.6"/>
+            <!-- Set tail -->
+            <ellipse cx="40" cy="48" rx="10" ry="4" fill="#9aa5b4" opacity="0.4"/>
+            <!-- Grip lines -->
+            <line x1="35" y1="24" x2="45" y2="24" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
+            <line x1="35" y1="28" x2="45" y2="28" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
+            <line x1="35" y1="32" x2="45" y2="32" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
+            <line x1="35" y1="36" x2="45" y2="36" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Rivets</span>
+          <h3 class="product-card__title">Rivets</h3>
+          <p class="product-card__desc">Permanent mechanical fasteners for joining materials without threads. Suitable for garment reinforcement and structural assembly.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">Copper</span>
+            <span class="product-card__spec">Stainless Steel</span>
+            <span class="product-card__spec">Aluminum</span>
+            <span class="product-card__spec">Jean Rivets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Snap Fasteners -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #111d30 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <!-- Top half (cap) -->
+            <circle cx="40" cy="30" r="16" stroke="#d4a84b" stroke-width="2.2"/>
+            <circle cx="40" cy="30" r="8" fill="#d4a84b" opacity="0.55"/>
+            <circle cx="40" cy="30" r="3" fill="#d4a84b" opacity="0.9"/>
+            <!-- Bottom half (socket) -->
+            <circle cx="40" cy="55" r="16" stroke="#9aa5b4" stroke-width="2.2"/>
+            <circle cx="40" cy="55" r="8" stroke="#9aa5b4" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="40" cy="55" r="3" fill="#9aa5b4" opacity="0.5"/>
+            <!-- Snap line -->
+            <line x1="20" y1="42" x2="60" y2="42" stroke="#d4a84b" stroke-width="0.6" opacity="0.4" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Snap Fasteners</span>
+          <h3 class="product-card__title">Snap Buttons</h3>
+          <p class="product-card__desc">Durable press-stud snap fasteners for garments, bags, and textile products. Quick-close mechanism with secure hold.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">Brass</span>
+            <span class="product-card__spec">Nickel Plated</span>
+            <span class="product-card__spec">Antique Gold</span>
+            <span class="product-card__spec">Multiple Sizes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Custom Fasteners -->
+      <div class="product-card reveal reveal-delay-3">
+        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
+            <!-- Gear / cog -->
+            <circle cx="40" cy="40" r="18" stroke="#d4a84b" stroke-width="2"/>
+            <circle cx="40" cy="40" r="7" fill="#d4a84b" opacity="0.4"/>
+            <!-- Gear teeth -->
+            <rect x="37" y="16" width="6" height="8" rx="1" fill="#d4a84b" opacity="0.5"/>
+            <rect x="37" y="56" width="6" height="8" rx="1" fill="#d4a84b" opacity="0.5"/>
+            <rect x="16" y="37" width="8" height="6" rx="1" fill="#d4a84b" opacity="0.5"/>
+            <rect x="56" y="37" width="8" height="6" rx="1" fill="#d4a84b" opacity="0.5"/>
+            <!-- Diagonal teeth -->
+            <rect x="24" y="22" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(-45 27 25.5)"/>
+            <rect x="50" y="51" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(-45 53 54.5)"/>
+            <rect x="50" y="22" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(45 53 25.5)"/>
+            <rect x="24" y="51" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(45 27 54.5)"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__tag">Custom</span>
+          <h3 class="product-card__title">Custom Metal Fasteners</h3>
+          <p class="product-card__desc">Bespoke fasteners manufactured to your exact specifications — unique shapes, finishes, and alloy combinations for OEM and specialised applications.</p>
+          <div class="product-card__specs">
+            <span class="product-card__spec">OEM Ready</span>
+            <span class="product-card__spec">Special Finishes</span>
+            <span class="product-card__spec">Any Alloy</span>
+            <span class="product-card__spec">Bulk Production</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INDUSTRIES SERVED ─── -->
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="industries .section-header reveal">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Industries Served</div>
+        <h2>Sectors We Supply</h2>
+      </div>
+    </div>
+    <div class="industries__grid">
+      <!-- Garments & Textiles -->
+      <div class="industry-card reveal reveal-delay-1">
+        <div class="industry-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 6V4a4 4 0 00-8 0v2"/></svg>
+        </div>
+        <h3>Garments & Textiles</h3>
+        <p>Eyelets, rivets, and snap buttons for garment production lines requiring consistent, high-volume fastener supply.</p>
+      </div>
+      <!-- Leather Goods -->
+      <div class="industry-card reveal reveal-delay-2">
+        <div class="industry-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3>Leather Goods</h3>
+        <p>Durable grommets and eyelets engineered to withstand the stress and wear of leather manufacturing processes.</p>
+      </div>
+      <!-- Footwear & Bags -->
+      <div class="industry-card reveal reveal-delay-3">
+        <div class="industry-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><path d="M12 11a3 3 0 100-6 3 3 0 000 6z"/><path d="M18 8h2a2 2 0 012 2v2"/></svg>
+        </div>
+        <h3>Footwear & Bags</h3>
+        <p>Precision metal eyelets and grommets for shoe lacing systems, belt loops, and bag hardware components.</p>
+      </div>
+      <!-- Industrial Fabrication -->
+      <div class="industry-card reveal reveal-delay-4">
+        <div class="industry-card__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </div>
+        <h3>Industrial Fabrication</h3>
+        <p>Washers, rivets, and industrial hardware for metal fabrication, assembly lines, and workshop applications.</p>
+      </div>
+      <!-- Equipment Manufacturing -->
+      <div class="industry-card reveal">
+        <div class="industry-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Equipment Manufacturing</h3>
+        <p>Custom metal fasteners and OEM components for machinery, equipment panels, and specialised industrial assemblies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ─── -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why__layout">
+      <div class="why__left">
+        <div class="section-header reveal">
+          <div class="section-header__eyebrow">Why Choose Us</div>
+          <h2>Your Reliable<br>Supply Partner</h2>
+        </div>
+        <ul class="why__list">
+          <li class="why__item reveal">
+            <div class="why__num">01</div>
+            <div>
+              <h3>Quality Consistency</h3>
+              <p>Every batch undergoes dimensional and material inspection. You receive the same reliable quality on your first order and your thousandth.</p>
+            </div>
+          </li>
+          <li class="why__item reveal reveal-delay-1">
+            <div class="why__num">02</div>
+            <div>
+              <h3>Industrial-Grade Materials</h3>
+              <p>We source and work with stainless steel, brass, aluminum, and coated alloys — materials proven to withstand corrosion and mechanical stress.</p>
+            </div>
+          </li>
+          <li class="why__item reveal reveal-delay-2">
+            <div class="why__num">03</div>
+            <div>
+              <h3>Bulk Order Capability</h3>
+              <p>Our production infrastructure is designed for high-volume runs. Whether you need thousands or millions of units, we scale with your demand.</p>
+            </div>
+          </li>
+          <li class="why__item reveal reveal-delay-3">
+            <div class="why__num">04</div>
+            <div>
+              <h3>Custom Specifications</h3>
+              <p>Non-standard sizes, unique finishes, and specialised alloy blends — we manufacture to your exact engineering requirements.</p>
+            </div>
+          </li>
+          <li class="why__item reveal reveal-delay-4">
+            <div class="why__num">05</div>
+            <div>
+              <h3>Reliable Delivery</h3>
+              <p>Streamlined logistics and inventory management ensure your orders arrive on schedule — every time.</p>
+            </div>
+          </li>
+          <li class="why__item reveal">
+            <div class="why__num">06</div>
+            <div>
+              <h3>Responsive Communication</h3>
+              <p>Dedicated account support via phone, WhatsApp, and email. Fast quotes, clear technical dialogue, and proactive updates.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="why__right reveal">
+        <div class="why__panel">
+          <div class="why__panel-title">Partnership Promise</div>
+          <h2>Not Just a Supplier —<br>A Partner</h2>
+          <p>We understand that fastener quality directly impacts your product's durability and your brand's reputation. That's why we treat every order as a long-term commitment, not a one-off transaction.</p>
+          <a href="#contact" class="why__panel-cta">
+            Start a Conversation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CUSTOM / OEM ─── -->
+<section class="oem" id="oem">
+  <!-- Decorative hexagon -->
+  <svg class="oem__hex" viewBox="0 0 200 200" fill="none">
+    <polygon points="100,5 195,52 195,148 100,195 5,148 5,52" stroke="white" stroke-width="1.5"/>
+    <polygon points="100,30 170,67 170,133 100,170 30,133 30,67" stroke="white" stroke-width="0.8"/>
+  </svg>
+
+  <div class="container">
+    <div class="oem__inner">
+      <div class="oem__content">
+        <div class="section-header reveal">
+          <div class="section-header__eyebrow">Custom & OEM</div>
+          <h2>Engineered to<br>Your Specifications</h2>
+        </div>
+        <p class="oem__desc reveal">
+          Beyond standard products, PrecisionFix offers full custom manufacturing for brands and OEM partners who need fastener components built to proprietary designs, unique finishes, or non-standard dimensions.
+        </p>
+        <div class="oem__pillars">
+          <div class="oem__pillar reveal">
+            <div class="oem__pillar-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h4>Custom Sizes</h4>
+            <p>Non-standard dimensions manufactured to your precise engineering drawings and tolerances.</p>
+          </div>
+          <div class="oem__pillar reveal reveal-delay-1">
+            <div class="oem__pillar-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h4>Special Finishes</h4>
+            <p>Antique brass, matte black, chrome, gold plating, and bespoke surface treatments.</p>
+          </div>
+          <div class="oem__pillar reveal reveal-delay-2">
+            <div class="oem__pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4>Bulk Production</h4>
+            <p>Scalable manufacturing runs from prototype samples to full production volumes.</p>
+          </div>
+          <div class="oem__pillar reveal reveal-delay-3">
+            <div class="oem__pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h4>OEM Partnerships</h4>
+            <p>Long-term supply agreements with branded packaging and dedicated production allocation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="oem__visual">
+        <div class="oem__spec-row reveal">
+          <div class="oem__spec-num">01</div>
+          <div>
+            <h4>Consultation & Design Review</h4>
+            <p>Submit your drawings — our engineers review specifications and confirm feasibility.</p>
+          </div>
+        </div>
+        <div class="oem__spec-row reveal reveal-delay-1">
+          <div class="oem__spec-num">02</div>
+          <div>
+            <h4>Sample Production</h4>
+            <p>We manufacture prototype samples for your quality and dimensional approval.</p>
+          </div>
+        </div>
+        <div class="oem__spec-row reveal reveal-delay-2">
+          <div class="oem__spec-num">03</div>
+          <div>
+            <h4>Bulk Manufacturing</h4>
+            <p>Once approved, production scales to your required volumes with consistent quality.</p>
+          </div>
+        </div>
+        <div class="oem__spec-row reveal reveal-delay-3">
+          <div class="oem__spec-num">04</div>
+          <div>
+            <h4>Delivery & Support</h4>
+            <p>Scheduled shipments with full traceability documentation and ongoing technical support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__header reveal">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Get In Touch</div>
+        <h2>Ready to Discuss Your Order?</h2>
+      </div>
+    </div>
+    <p class="contact__tagline reveal">
+      Whether you need a bulk quote, technical specifications, or want to discuss a custom fastener project — our team is ready to help. Reach out today.
+    </p>
+
+    <div class="contact__grid">
+      <!-- Left: Contact info -->
+      <div class="contact__info">
+        <div class="contact__card reveal">
+          <div class="contact__card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+92311234567">+92 311 234 5678</a></p>
+          </div>
+        </div>
+        <div class="contact__card reveal reveal-delay-1">
+          <div class="contact__card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/92311234567">+92 311 234 5678</a></p>
+          </div>
+        </div>
+        <div class="contact__card reveal reveal-delay-2">
+          <div class="contact__card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:orders@precisionfix.com">orders@precisionfix.com</a></p>
+          </div>
+        </div>
+        <div class="contact__card reveal reveal-delay-3">
+          <div class="contact__card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Office</h4>
+            <p>Faisalabad Industrial Estate, Punjab, Pakistan</p>
+          </div>
+        </div>
+        <!-- Strong CTA -->
+        <div class="contact__cta-strip reveal">
+          <p>💼 Bulk orders start at competitive rates</p>
+          <span>Contact us for a free, non-binding quotation</span>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact__form-wrap reveal reveal-delay-1">
+        <h3 class="contact__form-title">Request a Quotation</h3>
+        <p class="contact__form-sub">Fill in the details below and we'll get back to you within 24 hours.</p>
+        <form id="inquiryForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" placeholder="+92 3XX XXX XXXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" placeholder="Your company" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="product">Product Interest</label>
+              <select id="product">
+                <option value="" disabled selected>Select a product…</option>
+                <option value="eyelets">Metal Eyelets</option>
+                <option value="washers">Industrial Washers</option>
+                <option value="grommets">Metal Grommets</option>
+                <option value="rivets">Rivets</option>
+                <option value="snaps">Snap Buttons</option>
+                <option value="custom">Custom Metal Fasteners</option>
+                <option value="multiple">Multiple Products</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Estimated Quantity</label>
+              <select id="quantity">
+                <option value="" disabled selected>Select range…</option>
+                <option value="100-1000">100 – 1,000 units</option>
+                <option value="1000-10000">1,000 – 10,000 units</option>
+                <option value="10000-50000">10,000 – 50,000 units</option>
+                <option value="50000+">50,000+ units</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" placeholder="Describe your requirements — material, size, finish, timeline…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Inquiry</button>
+          <p class="form-note">We typically respond within 24 hours. No obligation, no spam.</p>
+        </form>
+        <!-- Success message (hidden by default) -->
+        <div id="successMsg" style="display:none; text-align:center; padding:32px 0;">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" style="margin-bottom:16px;">
+            <circle cx="28" cy="28" r="28" fill="#d4a84b" opacity="0.15"/>
+            <circle cx="28" cy="28" r="20" fill="#d4a84b" opacity="0.25"/>
+            <path d="M18 28l7 7 13-13" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <h3 style="font-family:var(--font-head);font-size:22px;color:var(--navy);margin-bottom:8px;">Inquiry Received</h3>
+          <p style="font-size:14px;color:var(--text-mid);">Thank you. Our team will review your request and contact you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">
+          <div class="nav__logo-mark"><span>PF</span></div>
+          <span class="nav__brand"><em>Precision</em>Fix</span>
+        </a>
+        <p>PrecisionFix Industries — a trusted fastener supplier delivering industrial-grade metal eyelets, washers, grommets, rivets, and custom hardware components to manufacturers worldwide.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#oem">Custom & OEM</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Metal Eyelets</a></li>
+          <li><a href="#products">Industrial Washers</a></li>
+          <li><a href="#products">Metal Grommets</a></li>
+          <li><a href="#products">Rivets</a></li>
+          <li><a href="#products">Snap Buttons</a></li>
+          <li><a href="#products">Custom Fasteners</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+92311234567">+92 311 234 5678</a></li>
+          <li><a href="mailto:orders@precisionfix.com">orders@precisionfix.com</a></li>
+          <li><a href="#">WhatsApp Us</a></li>
+          <li><a href="#contact">Request a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 PrecisionFix Industries. All rights reserved.</p>
+      <p>Industrial fastener supplier · Metal eyelets · Grommets · Rivets · Washers</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+   ═══════════════════════════════════════════ -->
+<script>
+// ─── NAV SCROLL EFFECT ───
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+});
+
+// ─── MOBILE NAV TOGGLE ───
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('nav__links--open');
+});
+// Close on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('nav__links--open'));
+});
+
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal--visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// ─── FORM SUBMIT ───
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('inquiryForm');
+  const successMsg = document.getElementById('successMsg');
+  form.style.display = 'none';
+  successMsg.style.display = 'block';
+}
+
+// ─── SMOOTH SCROLL FOR ANCHOR LINKS ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = 80;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
