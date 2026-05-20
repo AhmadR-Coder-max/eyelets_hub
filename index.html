@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Eyelets Hub — Industrial Fastener Supplier, Lahore</title>
-<meta name="description" content="Eyelets Hub is a Lahore-based industrial fastener supplier specialising in metal eyelets, washers, grommets, rivets, snap buttons, and custom metal fasteners for bulk orders." />
-<meta name="keywords" content="fastener supplier Pakistan, metal eyelets supplier Lahore, industrial washers, metal grommets, rivet supplier, industrial hardware components, snap fasteners, custom metal fasteners" />
+<meta name="description" content="Eyelets Hub is a Lahore-based manufacturer supplying shoes eyelets, leather eyelets, garments eyelets, tent & tarpaulin eyelets, industrial washers, eyelet & washer sets, and shoe hooks in bulk." />
+<meta name="keywords" content="eyelets supplier Pakistan, shoes eyelets Lahore, leather eyelets, garments eyelets, tent eyelets, tarpaulin eyelets, industrial washers, shoe hooks supplier, eyelet washer sets bulk" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -326,65 +326,147 @@
   .products__header { text-align:center; }
   .products__header .section-header__eyebrow { justify-content:center; }
   .products__sub {
-    font-size:16px; color: #3a4a5e; font-weight:400; max-width:600px;
+    font-size:16px; color: #3a4a5e; font-weight:400; max-width:640px;
     margin:16px auto 0; line-height:1.7;
   }
-  .products__grid {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:24px; margin-top:56px;
+
+  /* ── Category tabs ── */
+  .products__tabs {
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+    margin-top:44px;
   }
-  .product-card {
-    background:#fff;
-    border-radius:8px;
-    overflow:hidden;
+  .products__tab {
+    padding:10px 22px; border-radius:40px;
+    border:1px solid rgba(15,27,45,.15);
+    background:#fff; color: var(--steel);
+    font-size:15px; font-weight:600; letter-spacing:.06em;
+    text-transform:uppercase; cursor:pointer;
+    transition: all .25s;
+    font-family: var(--font-head);
+  }
+  .products__tab:hover { border-color: var(--accent); color: var(--accent); }
+  .products__tab.active {
+    background: var(--navy); color:#fff; border-color: var(--navy);
+  }
+
+  /* ── Product families grid ── */
+  .products__families {
+    margin-top:48px;
+  }
+  .product-family { display:none; }
+  .product-family.active { display:block; }
+
+  .family__intro {
+    display:grid; grid-template-columns: 1fr 2fr; gap:48px;
+    align-items:start; margin-bottom:40px;
+    background:#fff; border-radius:12px; padding:36px 40px;
     border:1px solid rgba(0,0,0,.06);
-    transition: transform .3s, box-shadow .3s;
-    position:relative;
+    box-shadow: 0 2px 16px rgba(15,27,45,.05);
   }
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(15,27,45,.12);
-  }
-  .product-card__visual {
-    height:180px;
+  .family__intro-icon {
+    width:100%; aspect-ratio:1;
+    max-width:160px; margin:0 auto;
     background: var(--navy-mid);
-    position:relative; overflow:hidden;
+    border-radius:12px;
     display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
   }
-  .product-card__visual svg {
-    width:72px; height:72px; opacity:.55;
-    transition: transform .4s, opacity .4s;
-  }
-  .product-card:hover .product-card__visual svg {
-    transform: scale(1.08); opacity:.75;
-  }
-  .product-card__visual::after {
+  .family__intro-icon::before {
     content:''; position:absolute; inset:0;
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.25) 100%);
+    background: radial-gradient(circle at 30% 30%, rgba(212,168,75,.15), transparent 70%);
   }
-  .product-card__body { padding:24px; }
-  .product-card__tag {
-    display:inline-block;
-    font-size:14px; font-weight:600; letter-spacing:.14em;
-    text-transform:uppercase; color: var(--accent);
-    background: rgba(212,168,75,.1); padding:4px 10px; border-radius:20px;
+  .family__intro-icon svg { width:72px; height:72px; position:relative; z-index:1; }
+  .family__intro-content { }
+  .family__intro-tag {
+    display:inline-block; font-size:12px; font-weight:700;
+    letter-spacing:.18em; text-transform:uppercase;
+    color: var(--accent); margin-bottom:10px;
+  }
+  .family__intro-title {
+    font-size:clamp(22px,2.5vw,30px); font-weight:700; color: var(--navy);
     margin-bottom:12px;
   }
-  .product-card__title {
-    font-size:18px; font-weight:700; color: var(--navy);
-    margin-bottom:10px;
+  .family__intro-desc {
+    font-size:16px; color: #3a4a5e; line-height:1.7; margin-bottom:20px;
   }
-  .product-card__desc {
-    font-size:15px; color: #3a4a5e; font-weight:400; line-height:1.6; margin-bottom:16px;
+  .family__intro-note {
+    font-size:15px; color: var(--steel); font-style:italic;
+    padding:12px 16px; background: rgba(212,168,75,.08);
+    border-left:3px solid var(--accent); border-radius:0 4px 4px 0;
   }
-  .product-card__specs {
+
+  /* ── Variant cards grid ── */
+  .family__variants {
+    display:grid; grid-template-columns: repeat(3,1fr); gap:20px;
+  }
+  .variant-card {
+    background:#fff; border-radius:10px;
+    border:1px solid rgba(0,0,0,.07);
+    padding:24px 22px;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+    position:relative; overflow:hidden;
+  }
+  .variant-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background: var(--accent); transform:scaleX(0); transform-origin:left;
+    transition: transform .3s;
+  }
+  .variant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(15,27,45,.1);
+    border-color: rgba(212,168,75,.3);
+  }
+  .variant-card:hover::before { transform:scaleX(1); }
+  .variant-card__num {
+    font-family: var(--font-head); font-size:32px; font-weight:800;
+    color: rgba(212,168,75,.18); line-height:1;
+    position:absolute; top:16px; right:20px;
+  }
+  .variant-card__title {
+    font-size:17px; font-weight:700; color: var(--navy); margin-bottom:8px;
+  }
+  .variant-card__desc {
+    font-size:15px; color: #3a4a5e; line-height:1.6; margin-bottom:14px;
+  }
+  .variant-card__pills {
     display:flex; flex-wrap:wrap; gap:6px;
   }
-  .product-card__spec {
-    font-size:15px; color: var(--steel-light);
+  .variant-card__pill {
+    font-size:13px; color: var(--steel);
     background: var(--off-white); padding:4px 10px;
-    border-radius:3px; border:1px solid rgba(0,0,0,.06);
+    border-radius:3px; border:1px solid rgba(0,0,0,.07);
+  }
+
+  /* ── All-products note ── */
+  .products__note {
+    margin-top:40px;
+    background: var(--navy); border-radius:10px;
+    padding:28px 36px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    flex-wrap:wrap;
+  }
+  .products__note p {
+    font-size:16px; color: #c8d4e0; line-height:1.6; max-width:640px;
+  }
+  .products__note p strong { color:#fff; }
+  .products__note a {
+    white-space:nowrap; padding:12px 26px;
+    background: var(--accent); color:#fff;
+    border-radius: var(--radius); text-decoration:none;
+    font-size:15px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    transition: background .25s, transform .2s;
+    font-family: var(--font-head);
+  }
+  .products__note a:hover { background: var(--accent-dim); transform:translateY(-1px); }
+
+  @media (max-width:1024px) {
+    .family__variants { grid-template-columns: repeat(2,1fr); }
+    .family__intro { grid-template-columns:1fr; gap:24px; }
+    .family__intro-icon { max-width:100px; }
+  }
+  @media (max-width:640px) {
+    .family__variants { grid-template-columns: 1fr; }
+    .products__note { flex-direction:column; }
   }
 
   /* ═══════════════════════════════════════════
@@ -726,7 +808,7 @@
        RESPONSIVE
      ═══════════════════════════════════════════ */
   @media (max-width:1024px) {
-    .products__grid { grid-template-columns:repeat(2,1fr); }
+    .family__variants { grid-template-columns:repeat(2,1fr); }
     .industries__grid { grid-template-columns:repeat(3,1fr); }
     .about__grid { grid-template-columns:1fr; gap:40px; }
     .why__layout { grid-template-columns:1fr; }
@@ -739,7 +821,7 @@
     .nav__links { display:none; position:fixed; top:68px; left:0; right:0; bottom:0; background: var(--navy); flex-direction:column; justify-content:center; align-items:center; gap:24px; padding:40px; }
     .nav__links--open { display:flex; }
     .nav__toggle { display:flex; }
-    .products__grid { grid-template-columns:1fr; }
+    .family__variants { grid-template-columns:1fr; }
     .industries__grid { grid-template-columns:repeat(2,1fr); }
     .form-row { grid-template-columns:1fr; }
     .about__features { grid-template-columns:1fr; }
@@ -932,167 +1014,286 @@
 <!-- ─── PRODUCTS ─── -->
 <section class="products" id="products">
   <div class="container">
+
     <div class="products__header reveal">
       <div class="section-header">
         <div class="section-header__eyebrow">What We Make</div>
-        <h2>Our Product Range</h2>
+        <h2>Our Full Product Range</h2>
       </div>
       <p class="products__sub">
-        Every product leaves our Lahore facility with a dimensional check. We work in stainless steel, brass, and coated alloys — whatever the application calls for.
+        Everything we make is available in multiple types, sizes, and materials. If you have a spec, we can match it. If you don't, we'll help you find the right fit.
       </p>
     </div>
 
-    <div class="products__grid">
-      <!-- Card 1: Metal Eyelets -->
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #0f1b2d 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <circle cx="40" cy="40" r="34" stroke="#d4a84b" stroke-width="2.5"/>
-            <circle cx="40" cy="40" r="24" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <circle cx="40" cy="40" r="12" fill="#d4a84b" opacity="0.6"/>
-            <circle cx="40" cy="40" r="5" fill="#d4a84b"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Eyelets</span>
-          <h3 class="product-card__title">Metal Eyelets</h3>
-          <p class="product-card__desc">Stamped eyelets for garment, leather, and canvas applications. We've supplied these to some of Lahore's largest export units — consistency across high-volume runs is something we take seriously.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">Stainless Steel</span>
-            <span class="product-card__spec">Brass</span>
-            <span class="product-card__spec">Coated Steel</span>
-            <span class="product-card__spec">Custom Sizes</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Washers -->
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <circle cx="40" cy="40" r="32" stroke="#9aa5b4" stroke-width="3.5"/>
-            <circle cx="40" cy="40" r="24" stroke="#9aa5b4" stroke-width="2" opacity="0.6"/>
-            <circle cx="40" cy="40" r="10" fill="#9aa5b4" opacity="0.4"/>
-            <circle cx="40" cy="40" r="28" stroke="#d4a84b" stroke-width="0.7" opacity="0.4" stroke-dasharray="2 4"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Washers</span>
-          <h3 class="product-card__title">Industrial Washers</h3>
-          <p class="product-card__desc">Flat and spring washers for load distribution and joint integrity. Used by assembly lines and fabrication workshops that can't afford fastener failure mid-run.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">Stainless Steel</span>
-            <span class="product-card__spec">Aluminum</span>
-            <span class="product-card__spec">Corrosion Resistant</span>
-            <span class="product-card__spec">Bulk Supply</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Grommets -->
-      <div class="product-card reveal reveal-delay-3">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #111d30 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <circle cx="40" cy="40" r="30" stroke="#d4a84b" stroke-width="3"/>
-            <circle cx="40" cy="40" r="22" stroke="#d4a84b" stroke-width="1.2" opacity="0.5"/>
-            <circle cx="40" cy="40" r="14" stroke="#9aa5b4" stroke-width="2.5" opacity="0.7"/>
-            <circle cx="40" cy="40" r="7" fill="#d4a84b" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Grommets</span>
-          <h3 class="product-card__title">Metal Grommets</h3>
-          <p class="product-card__desc">Heavy-duty grommets that protect material openings from tearing and wear. A staple for tarpaulins, bags, footwear, and industrial curtains.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">Brass</span>
-            <span class="product-card__spec">Stainless Steel</span>
-            <span class="product-card__spec">Anti-Corrosion</span>
-            <span class="product-card__spec">Heavy Duty</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4: Rivets -->
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <rect x="35" y="12" width="10" height="36" rx="2" fill="#9aa5b4" opacity="0.5"/>
-            <ellipse cx="40" cy="14" rx="14" ry="6" fill="#d4a84b" opacity="0.6"/>
-            <ellipse cx="40" cy="48" rx="10" ry="4" fill="#9aa5b4" opacity="0.4"/>
-            <line x1="35" y1="24" x2="45" y2="24" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
-            <line x1="35" y1="28" x2="45" y2="28" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
-            <line x1="35" y1="32" x2="45" y2="32" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
-            <line x1="35" y1="36" x2="45" y2="36" stroke="#d4a84b" stroke-width="0.7" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Rivets</span>
-          <h3 class="product-card__title">Rivets</h3>
-          <p class="product-card__desc">Permanent fasteners for garment reinforcement, denim, leather, and structural applications. We stock standard sizes and can produce to spec for custom runs.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">Copper</span>
-            <span class="product-card__spec">Stainless Steel</span>
-            <span class="product-card__spec">Aluminum</span>
-            <span class="product-card__spec">Jean Rivets</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5: Snap Fasteners -->
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #162236 0%, #111d30 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <circle cx="40" cy="30" r="16" stroke="#d4a84b" stroke-width="2.2"/>
-            <circle cx="40" cy="30" r="8" fill="#d4a84b" opacity="0.55"/>
-            <circle cx="40" cy="30" r="3" fill="#d4a84b" opacity="0.9"/>
-            <circle cx="40" cy="55" r="16" stroke="#9aa5b4" stroke-width="2.2"/>
-            <circle cx="40" cy="55" r="8" stroke="#9aa5b4" stroke-width="1.2" opacity="0.5"/>
-            <circle cx="40" cy="55" r="3" fill="#9aa5b4" opacity="0.5"/>
-            <line x1="20" y1="42" x2="60" y2="42" stroke="#d4a84b" stroke-width="0.6" opacity="0.4" stroke-dasharray="3 3"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Snap Fasteners</span>
-          <h3 class="product-card__title">Snap Buttons</h3>
-          <p class="product-card__desc">Press-stud snap fasteners for garments, bags, and accessories. Consistent snap force, clean finish — the kind of detail that shows up on export orders.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">Brass</span>
-            <span class="product-card__spec">Nickel Plated</span>
-            <span class="product-card__spec">Antique Gold</span>
-            <span class="product-card__spec">Multiple Sizes</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6: Custom Fasteners -->
-      <div class="product-card reveal reveal-delay-3">
-        <div class="product-card__visual" style="background: linear-gradient(145deg, #1a2d44 0%, #0f1b2d 100%);">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;">
-            <circle cx="40" cy="40" r="18" stroke="#d4a84b" stroke-width="2"/>
-            <circle cx="40" cy="40" r="7" fill="#d4a84b" opacity="0.4"/>
-            <rect x="37" y="16" width="6" height="8" rx="1" fill="#d4a84b" opacity="0.5"/>
-            <rect x="37" y="56" width="6" height="8" rx="1" fill="#d4a84b" opacity="0.5"/>
-            <rect x="16" y="37" width="8" height="6" rx="1" fill="#d4a84b" opacity="0.5"/>
-            <rect x="56" y="37" width="8" height="6" rx="1" fill="#d4a84b" opacity="0.5"/>
-            <rect x="24" y="22" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(-45 27 25.5)"/>
-            <rect x="50" y="51" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(-45 53 54.5)"/>
-            <rect x="50" y="22" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(45 53 25.5)"/>
-            <rect x="24" y="51" width="6" height="7" rx="1" fill="#d4a84b" opacity="0.35" transform="rotate(45 27 54.5)"/>
-          </svg>
-        </div>
-        <div class="product-card__body">
-          <span class="product-card__tag">Custom</span>
-          <h3 class="product-card__title">Custom Metal Fasteners</h3>
-          <p class="product-card__desc">Have a drawing or a sample? Send it over. We've made non-standard eyelets, branded snap buttons, and custom-finish grommets for clients who couldn't find what they needed elsewhere.</p>
-          <div class="product-card__specs">
-            <span class="product-card__spec">OEM Ready</span>
-            <span class="product-card__spec">Special Finishes</span>
-            <span class="product-card__spec">Any Alloy</span>
-            <span class="product-card__spec">Bulk Production</span>
-          </div>
-        </div>
-      </div>
+    <!-- Category Tabs -->
+    <div class="products__tabs reveal">
+      <button class="products__tab active" onclick="showFamily('eyelets', this)">Eyelets</button>
+      <button class="products__tab" onclick="showFamily('washers', this)">Washers</button>
+      <button class="products__tab" onclick="showFamily('hooks', this)">Shoe Hooks</button>
+      <button class="products__tab" onclick="showFamily('combos', this)">Combo Sets</button>
     </div>
+
+    <div class="products__families">
+
+      <!-- ══ FAMILY 1: EYELETS ══ -->
+      <div class="product-family active" id="family-eyelets">
+        <div class="family__intro reveal">
+          <div class="family__intro-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="34" stroke="#d4a84b" stroke-width="2.5"/>
+              <circle cx="40" cy="40" r="24" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <circle cx="40" cy="40" r="12" fill="#d4a84b" opacity="0.55"/>
+              <circle cx="40" cy="40" r="5" fill="#d4a84b"/>
+            </svg>
+          </div>
+          <div class="family__intro-content">
+            <span class="family__intro-tag">Product Family · Eyelets</span>
+            <h3 class="family__intro-title">Metal Eyelets — Four Specialisations</h3>
+            <p class="family__intro-desc">Eyelets are our core product and have been since day one. We manufacture them across four distinct application categories — each with its own dimensional standards, material grade, and finish requirements. Every variant is available in multiple sizes and can be produced to your exact specification.</p>
+            <div class="family__intro-note">All eyelets are available in brass, stainless steel, coated steel, and custom alloys. Minimum order quantities apply per variant — contact us for details.</div>
+          </div>
+        </div>
+        <div class="family__variants">
+          <div class="variant-card reveal">
+            <div class="variant-card__num">01</div>
+            <h4 class="variant-card__title">Shoes Eyelets</h4>
+            <p class="variant-card__desc">Precision-stamped eyelets built for the lacing holes of footwear. Tight tolerances ensure a clean, burr-free finish that won't damage laces or fabric. Used by shoe manufacturers and exporters requiring consistent, high-volume supply.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Brass</span>
+              <span class="variant-card__pill">Nickel Plated</span>
+              <span class="variant-card__pill">Antique Brass</span>
+              <span class="variant-card__pill">Multiple Sizes</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-1">
+            <div class="variant-card__num">02</div>
+            <h4 class="variant-card__title">Leather Eyelets</h4>
+            <p class="variant-card__desc">Heavier-gauge eyelets designed for the stress demands of leather goods — belts, bags, saddlery, and leather garments. The flange width and wall thickness are calibrated to grip leather cleanly without cracking or pull-through under tension.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Brass</span>
+              <span class="variant-card__pill">Stainless Steel</span>
+              <span class="variant-card__pill">Antique Gold</span>
+              <span class="variant-card__pill">Heavy Gauge</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-2">
+            <div class="variant-card__num">03</div>
+            <h4 class="variant-card__title">Garments Eyelets</h4>
+            <p class="variant-card__desc">Lighter, finer eyelets for textile and apparel applications — hoodies, jackets, corsets, and decorative garment detailing. Available in a wide range of finishes to suit brand aesthetics, from matte black to polished gold.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Gunmetal</span>
+              <span class="variant-card__pill">Matte Black</span>
+              <span class="variant-card__pill">Gold Plated</span>
+              <span class="variant-card__pill">Lightweight</span>
+            </div>
+          </div>
+          <div class="variant-card reveal">
+            <div class="variant-card__num">04</div>
+            <h4 class="variant-card__title">Tarpaulin &amp; Tent Eyelets</h4>
+            <p class="variant-card__desc">Large-bore, heavy-duty eyelets for tarpaulins, marquee tents, truck covers, and outdoor shelters. Built to handle constant rope tension, weather exposure, and repeated staking without deforming or pulling out of the material.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Zinc Alloy</span>
+              <span class="variant-card__pill">Stainless Steel</span>
+              <span class="variant-card__pill">Anti-Rust Coated</span>
+              <span class="variant-card__pill">Large Bore</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-1">
+            <div class="variant-card__num">05</div>
+            <h4 class="variant-card__title">Custom &amp; Non-Standard Eyelets</h4>
+            <p class="variant-card__desc">If your application doesn't fit a standard size, we manufacture to your drawings. Send us a sample or a spec sheet — we've produced branded eyelets, oversized variants, and special-finish runs for clients across multiple sectors.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Any Size</span>
+              <span class="variant-card__pill">Any Finish</span>
+              <span class="variant-card__pill">OEM Branding</span>
+              <span class="variant-card__pill">Sample First</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ FAMILY 2: WASHERS ══ -->
+      <div class="product-family" id="family-washers">
+        <div class="family__intro reveal">
+          <div class="family__intro-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="32" stroke="#9aa5b4" stroke-width="3.5"/>
+              <circle cx="40" cy="40" r="22" stroke="#9aa5b4" stroke-width="2" opacity="0.7"/>
+              <circle cx="40" cy="40" r="10" fill="#9aa5b4" opacity="0.35"/>
+              <circle cx="40" cy="40" r="28" stroke="#d4a84b" stroke-width="1" opacity="0.5" stroke-dasharray="3 4"/>
+            </svg>
+          </div>
+          <div class="family__intro-content">
+            <span class="family__intro-tag">Product Family · Washers</span>
+            <h3 class="family__intro-title">Washers — Industrial &amp; Eyelet-Paired</h3>
+            <p class="family__intro-desc">We produce washers both as standalone industrial components and as paired backing washers for eyelet sets. Whether you need flat washers for load distribution in a fabrication context, or backing washers to reinforce tarpaulin eyelets, we manufacture them to the correct OD/ID ratio for the application.</p>
+            <div class="family__intro-note">Washers can be ordered standalone or as part of an eyelet-and-washer set. All sizes available — we match to your eyelet spec automatically if ordered together.</div>
+          </div>
+        </div>
+        <div class="family__variants">
+          <div class="variant-card reveal">
+            <div class="variant-card__num">01</div>
+            <h4 class="variant-card__title">Industrial Flat Washers</h4>
+            <p class="variant-card__desc">Standard flat washers for load distribution in assembly, fabrication, and industrial hardware applications. Available in a full range of OD/ID combinations and thickness grades.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Stainless Steel</span>
+              <span class="variant-card__pill">Mild Steel</span>
+              <span class="variant-card__pill">Aluminum</span>
+              <span class="variant-card__pill">Custom OD/ID</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-1">
+            <div class="variant-card__num">02</div>
+            <h4 class="variant-card__title">Tent &amp; Tarpaulin Washers</h4>
+            <p class="variant-card__desc">Backing washers specifically sized to pair with tent and tarpaulin eyelets. The wider flange spreads the eyelet load across the fabric, preventing tear-out under rope tension and weather stress.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Zinc Coated</span>
+              <span class="variant-card__pill">Stainless Steel</span>
+              <span class="variant-card__pill">Anti-Rust</span>
+              <span class="variant-card__pill">Eyelet-Matched</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-2">
+            <div class="variant-card__num">03</div>
+            <h4 class="variant-card__title">Shoes &amp; Leather Backing Washers</h4>
+            <p class="variant-card__desc">Small-profile washers that sit behind eyelets in footwear and leather goods, reinforcing the fixing point and giving a clean, professional back-face finish. Matched to our shoe and leather eyelet range.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Brass</span>
+              <span class="variant-card__pill">Nickel</span>
+              <span class="variant-card__pill">Small Profile</span>
+              <span class="variant-card__pill">Eyelet-Matched</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ FAMILY 3: SHOE HOOKS ══ -->
+      <div class="product-family" id="family-hooks">
+        <div class="family__intro reveal">
+          <div class="family__intro-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Hook shape -->
+              <path d="M40 15 C40 15 55 15 55 28 C55 38 45 40 40 40 C35 40 25 42 25 55 C25 65 35 68 40 68" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <circle cx="40" cy="14" r="5" fill="#d4a84b" opacity="0.7"/>
+              <path d="M30 62 L40 68 L50 62" stroke="#d4a84b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="family__intro-content">
+            <span class="family__intro-tag">Product Family · Shoe Hardware</span>
+            <h3 class="family__intro-title">Shoe Hooks — Lace Hooks in Various Types &amp; Sizes</h3>
+            <p class="family__intro-desc">Shoe lace hooks are a more specialised product — and one we've invested in properly. We manufacture speed hooks (D-ring hooks), flat loop hooks, and claw hooks across the standard size range used in boots, dress shoes, and sports footwear. Each type is available in multiple finishes to suit the shoe's aesthetic.</p>
+            <div class="family__intro-note">Hooks can be supplied loose or in matched sets with eyelets — useful for boot manufacturers who want a consistent hardware kit from a single supplier.</div>
+          </div>
+        </div>
+        <div class="family__variants">
+          <div class="variant-card reveal">
+            <div class="variant-card__num">01</div>
+            <h4 class="variant-card__title">Speed Hooks (D-Ring Hooks)</h4>
+            <p class="variant-card__desc">The most common lacing hook — a D-shaped loop mounted on a flat base plate that crimps onto the boot upper. Fast to lace, secure under tension, and available in the standard size progression for ankle boots and work boots.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Brass</span>
+              <span class="variant-card__pill">Nickel Plated</span>
+              <span class="variant-card__pill">Antique Bronze</span>
+              <span class="variant-card__pill">Sizes 0–5</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-1">
+            <div class="variant-card__num">02</div>
+            <h4 class="variant-card__title">Flat Loop Hooks</h4>
+            <p class="variant-card__desc">A lower-profile hook with a flat oval loop, preferred for dress boots and fashion footwear where a cleaner visual line is needed. Crimps flat against the upper for minimal protrusion.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Gunmetal</span>
+              <span class="variant-card__pill">Gold Plated</span>
+              <span class="variant-card__pill">Matte Black</span>
+              <span class="variant-card__pill">Low Profile</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-2">
+            <div class="variant-card__num">03</div>
+            <h4 class="variant-card__title">Claw Hooks</h4>
+            <p class="variant-card__desc">A stronger hook with a wider throat and claw-grip base plate — used in heavy-duty boots, hiking footwear, and industrial safety shoes where lace tension and pull-out resistance are higher priorities.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Stainless Steel</span>
+              <span class="variant-card__pill">Zinc Alloy</span>
+              <span class="variant-card__pill">Heavy Duty</span>
+              <span class="variant-card__pill">Wide Throat</span>
+            </div>
+          </div>
+          <div class="variant-card reveal">
+            <div class="variant-card__num">04</div>
+            <h4 class="variant-card__title">Custom Hook Types</h4>
+            <p class="variant-card__desc">Non-standard hook profiles, custom base plate widths, or proprietary finishes manufactured to your design. We've produced branded hooks for footwear labels who want their hardware to be distinctive.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Custom Profile</span>
+              <span class="variant-card__pill">Any Finish</span>
+              <span class="variant-card__pill">OEM Ready</span>
+              <span class="variant-card__pill">Sample First</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ FAMILY 4: COMBO SETS ══ -->
+      <div class="product-family" id="family-combos">
+        <div class="family__intro reveal">
+          <div class="family__intro-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="16" stroke="#d4a84b" stroke-width="2.5"/>
+              <circle cx="28" cy="28" r="7" fill="#d4a84b" opacity="0.5"/>
+              <circle cx="52" cy="52" r="16" stroke="#9aa5b4" stroke-width="2.5"/>
+              <circle cx="52" cy="52" r="7" fill="#9aa5b4" opacity="0.4"/>
+              <line x1="38" y1="38" x2="42" y2="42" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="3 2"/>
+            </svg>
+          </div>
+          <div class="family__intro-content">
+            <span class="family__intro-tag">Product Family · Sets &amp; Combinations</span>
+            <h3 class="family__intro-title">Eyelet &amp; Washer Sets — Matched &amp; Ready to Use</h3>
+            <p class="family__intro-desc">Many manufacturers find it easier — and more cost-effective — to order eyelet-and-washer sets from a single supplier rather than sourcing components separately and managing sizing compatibility themselves. We offer matched sets for the three most common applications, pre-paired to the correct OD/ID ratios.</p>
+            <div class="family__intro-note">Sets are packed and counted together. If you're purchasing both components anyway, ordering as a set reduces lead time and eliminates the risk of mismatched sizing between suppliers.</div>
+          </div>
+        </div>
+        <div class="family__variants">
+          <div class="variant-card reveal">
+            <div class="variant-card__num">01</div>
+            <h4 class="variant-card__title">Tent &amp; Tarpaulin Set</h4>
+            <p class="variant-card__desc">Large-bore tent eyelet paired with its matching backing washer. The washer's OD is calculated to distribute the load across the tarpaulin fabric correctly for the eyelet size. Anti-rust coating standard.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Anti-Rust Coated</span>
+              <span class="variant-card__pill">Matched OD/ID</span>
+              <span class="variant-card__pill">3 Size Options</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-1">
+            <div class="variant-card__num">02</div>
+            <h4 class="variant-card__title">Shoes Eyelet &amp; Washer Set</h4>
+            <p class="variant-card__desc">Shoe eyelet with a matched backing washer — ideal for footwear manufacturers who want clean front and back faces on lacing holes. The washer prevents the eyelet base from cutting into the shoe lining.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Brass / Nickel</span>
+              <span class="variant-card__pill">Paired Sizing</span>
+              <span class="variant-card__pill">4 Size Options</span>
+            </div>
+          </div>
+          <div class="variant-card reveal reveal-delay-2">
+            <div class="variant-card__num">03</div>
+            <h4 class="variant-card__title">Custom Matched Sets</h4>
+            <p class="variant-card__desc">We'll match any eyelet from our range with the correct washer and supply them as a kit. If you have your own washer spec, we can produce to that instead. Useful for brands standardising their hardware across a product line.</p>
+            <div class="variant-card__pills">
+              <span class="variant-card__pill">Any Eyelet Type</span>
+              <span class="variant-card__pill">Custom Washer Spec</span>
+              <span class="variant-card__pill">Bulk Packing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /products__families -->
+
+    <!-- Bottom CTA note -->
+    <div class="products__note reveal">
+      <p><strong>Every product is available in multiple sizes and finishes.</strong> If you don't see what you need here, it doesn't mean we can't make it — most of our custom work starts with a conversation. Send us your spec or a sample.</p>
+      <a href="#contact">Request a Quote</a>
+    </div>
+
   </div>
 </section>
 
@@ -1376,12 +1577,15 @@
               <label for="product">Product Needed</label>
               <select id="product">
                 <option value="" disabled selected>Select a product…</option>
-                <option value="eyelets">Metal Eyelets</option>
+                <option value="shoes-eyelets">Shoes Eyelets</option>
+                <option value="leather-eyelets">Leather Eyelets</option>
+                <option value="garments-eyelets">Garments Eyelets</option>
+                <option value="tent-eyelets">Tarpaulin / Tent Eyelets</option>
                 <option value="washers">Industrial Washers</option>
-                <option value="grommets">Metal Grommets</option>
-                <option value="rivets">Rivets</option>
-                <option value="snaps">Snap Buttons</option>
-                <option value="custom">Custom Metal Fasteners</option>
+                <option value="tent-set">Tent Eyelet &amp; Washer Set</option>
+                <option value="shoes-set">Shoes Eyelet &amp; Washer Set</option>
+                <option value="shoe-hooks">Shoe Hooks (Speed / Loop / Claw)</option>
+                <option value="custom">Custom / Non-Standard</option>
                 <option value="multiple">Multiple Products</option>
               </select>
             </div>
@@ -1441,12 +1645,12 @@
       <div class="footer__col">
         <h4>Products</h4>
         <ul>
-          <li><a href="#products">Metal Eyelets</a></li>
-          <li><a href="#products">Industrial Washers</a></li>
-          <li><a href="#products">Metal Grommets</a></li>
-          <li><a href="#products">Rivets</a></li>
-          <li><a href="#products">Snap Buttons</a></li>
-          <li><a href="#products">Custom Fasteners</a></li>
+          <li><a href="#products">Shoes Eyelets</a></li>
+          <li><a href="#products">Leather Eyelets</a></li>
+          <li><a href="#products">Garments Eyelets</a></li>
+          <li><a href="#products">Tent &amp; Tarpaulin Eyelets</a></li>
+          <li><a href="#products">Washers &amp; Sets</a></li>
+          <li><a href="#products">Shoe Hooks</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -1460,7 +1664,7 @@
     </div>
     <div class="footer__bottom">
       <p>&copy; 2026 Eyelets Hub. All rights reserved. Lahore, Pakistan.</p>
-      <p>Metal eyelets · Grommets · Rivets · Washers · Snap buttons</p>
+      <p>Shoes eyelets · Leather eyelets · Garments eyelets · Tent eyelets · Washers · Shoe hooks</p>
     </div>
   </div>
 </footer>
@@ -1489,6 +1693,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
+
+function showFamily(id, btn) {
+  document.querySelectorAll('.product-family').forEach(f => f.classList.remove('active'));
+  document.querySelectorAll('.products__tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('family-' + id).classList.add('active');
+  btn.classList.add('active');
+  // re-trigger reveal for newly visible cards
+  document.querySelectorAll('#family-' + id + ' .reveal').forEach(el => {
+    el.classList.remove('reveal--visible');
+    setTimeout(() => el.classList.add('reveal--visible'), 50);
+  });
+}
 
 function handleSubmit(e) {
   e.preventDefault();
