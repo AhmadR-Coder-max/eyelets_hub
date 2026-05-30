@@ -131,248 +131,131 @@
        HERO
      ═══════════════════════════════════════════ */
   .hero {
-    position: relative;
-    min-height: 100vh;
-    background: #f7f8fb;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    background: #fff;
     padding-top: 68px;
+    overflow: hidden;
   }
-  .hero__orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero__orb--1 {
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(212,168,75,.16) 0%, rgba(212,168,75,.04) 50%, transparent 70%);
-    top: -200px; right: -80px;
-    filter: blur(32px);
-  }
-  .hero__orb--2 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(15,27,45,.07) 0%, transparent 70%);
-    bottom: 120px; left: -100px;
-    filter: blur(40px);
-  }
-  .hero__main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-  .hero__body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
-    width: 100%;
-    max-width: 1180px;
+
+  /* Centered text block */
+  .hero__center {
+    text-align: center;
+    padding: 80px 24px 56px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 60px 24px 40px;
   }
-  /* Badge */
-  .hero__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(212,168,75,.1);
-    border: 1px solid rgba(212,168,75,.3);
-    color: #9a7228;
-    padding: 6px 14px 6px 10px;
-    border-radius: 100px;
+  .hero__eyebrow {
+    display: inline-block;
     font-size: 13px; font-weight: 600;
-    letter-spacing: .1em; text-transform: uppercase;
-    margin-bottom: 26px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
   }
-  .hero__badge-dot {
-    width: 7px; height: 7px;
-    background: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  /* Title */
   .hero__title {
-    font-size: clamp(40px, 5vw, 68px);
+    font-size: clamp(36px, 5.5vw, 64px);
     font-weight: 800;
-    line-height: 1.06;
+    line-height: 1.08;
     color: var(--navy);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
+    letter-spacing: -.01em;
   }
-  .hero__title .line2 {
-    background: linear-gradient(120deg, #d4a84b 0%, #e8c060 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .hero__desc {
+    font-size: 18px; font-weight: 400;
+    color: #5a6a7e; line-height: 1.6;
+    margin-bottom: 36px;
   }
-  .hero__sub {
-    font-size: 17px; font-weight: 400;
-    line-height: 1.75; color: #4a5a6e;
-    max-width: 460px; margin-bottom: 36px;
+  .hero__actions {
+    display: flex; gap: 14px;
+    justify-content: center; flex-wrap: wrap;
   }
-  .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-  /* Hero buttons */
   .btn--hero-primary {
     background: var(--navy); color: #fff;
-    padding: 15px 28px; border-radius: 10px;
+    padding: 14px 32px; border-radius: 40px;
     font-size: 15px; font-weight: 600;
-    letter-spacing: .08em; text-transform: uppercase;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    transition: background .25s, transform .2s, box-shadow .25s;
-    border: none; cursor: pointer;
+    transition: background .25s, box-shadow .25s;
+    border: none; cursor: pointer; letter-spacing: .02em;
   }
-  .btn--hero-primary svg { width: 16px; height: 16px; }
   .btn--hero-primary:hover {
     background: var(--navy-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(15,27,45,.22);
+    box-shadow: 0 6px 20px rgba(15,27,45,.25);
   }
   .btn--hero-ghost {
     background: transparent; color: var(--navy);
-    padding: 15px 28px; border-radius: 10px;
+    padding: 14px 32px; border-radius: 40px;
     font-size: 15px; font-weight: 600;
-    letter-spacing: .08em; text-transform: uppercase;
     text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    border: 1.5px solid rgba(15,27,45,.2);
-    transition: all .25s; cursor: pointer;
+    border: 1.5px solid rgba(15,27,45,.22);
+    transition: all .25s; cursor: pointer; letter-spacing: .02em;
   }
   .btn--hero-ghost:hover { border-color: var(--accent); color: var(--accent); }
-  /* Inline stats */
-  .hero__stats-row {
-    display: flex; align-items: center;
-    border-top: 1px solid rgba(0,0,0,.08);
-    padding-top: 28px;
-  }
-  .hero__stat-item {
-    padding-right: 24px; margin-right: 24px;
-    border-right: 1px solid rgba(0,0,0,.1);
-  }
-  .hero__stat-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
-  .hero__stat-val {
-    font-family: var(--font-head);
-    font-size: 28px; font-weight: 800;
-    color: var(--navy); line-height: 1;
-  }
-  .hero__stat-lbl {
-    font-size: 12px; color: #8a9aac;
-    font-weight: 500; margin-top: 4px;
-    text-transform: uppercase; letter-spacing: .1em;
-  }
-  /* Visual card */
-  .hero__visual { position: relative; }
-  .hero__visual-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 32px;
-    box-shadow: 0 24px 60px rgba(15,27,45,.1), 0 4px 12px rgba(15,27,45,.06);
-    border: 1px solid rgba(0,0,0,.05);
-    position: relative; overflow: hidden;
-  }
-  .hero__visual-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), #e8c060 60%, transparent 100%);
-  }
-  .hero__vc-header {
-    display: flex; align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-  }
-  .hero__vc-label {
-    font-size: 12px; font-weight: 700;
-    color: #9aa5b4; letter-spacing: .14em; text-transform: uppercase;
-  }
-  .hero__vc-tag {
-    background: rgba(212,168,75,.1); color: #b8913d;
-    font-size: 12px; font-weight: 700;
-    padding: 4px 12px; border-radius: 100px;
-    letter-spacing: .08em; text-transform: uppercase;
-  }
-  .hero__vc-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 12px; margin-bottom: 20px;
-  }
-  .hero__vc-product {
-    background: #f7f8fb; border-radius: 12px;
-    padding: 18px 16px;
-    display: flex; flex-direction: column;
-    align-items: center; text-align: center;
-    transition: background .2s;
-  }
-  .hero__vc-product:hover { background: rgba(212,168,75,.07); }
-  .hero__vc-product svg { width: 48px; height: 48px; margin-bottom: 10px; }
-  .hero__vc-product-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-  .hero__vc-product-detail { font-size: 12px; color: #8a9aac; font-weight: 400; }
-  .hero__vc-footer {
-    background: var(--navy); border-radius: 12px;
-    padding: 14px 18px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .hero__vc-footer-text { font-size: 14px; font-weight: 600; color: #fff; font-family: var(--font-head); }
-  .hero__vc-footer-arrow { color: var(--accent); font-size: 18px; font-weight: 700; }
-  /* Floating badges on visual */
-  .hero__float-badge {
-    position: absolute;
-    background: #fff; border-radius: 100px;
-    padding: 8px 14px 8px 10px;
-    display: flex; align-items: center; gap: 8px;
-    font-size: 13px; font-weight: 600; color: var(--navy);
-    box-shadow: 0 4px 20px rgba(0,0,0,.12);
-    border: 1px solid rgba(0,0,0,.05);
-    white-space: nowrap; z-index: 5;
-  }
-  .hero__float-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%; flex-shrink: 0;
-  }
-  .hero__float-badge--1 { top: -14px; right: 30px; }
-  .hero__float-badge--2 { bottom: 30px; right: -14px; }
-  /* Chips bar */
-  .hero__chips-bar {
+
+  /* Infinite scrolling carousel */
+  .hero__carousel {
     width: 100%;
-    background: rgba(255,255,255,.94);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(0,0,0,.08);
-    padding: 18px 0;
-    position: relative; z-index: 2;
+    overflow: hidden;
+    padding-bottom: 72px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
   }
-  .hero__chips-wrap {
-    max-width: 1180px; margin: 0 auto;
-    padding: 0 24px;
-    display: grid; grid-template-columns: repeat(4,1fr); gap: 14px;
+  .hero__track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: hero-scroll 40s linear infinite;
   }
-  .hero__chip {
-    display: flex; align-items: center; gap: 12px;
-    background: #f7f8fb;
-    border: 1px solid rgba(0,0,0,.07); border-radius: 14px;
-    padding: 14px 16px; text-decoration: none;
-    transition: all .25s; cursor: pointer;
+  .hero__track:hover { animation-play-state: paused; }
+  @keyframes hero-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
-  .hero__chip:hover {
-    background: #fff;
-    border-color: rgba(212,168,75,.4);
-    box-shadow: 0 4px 16px rgba(212,168,75,.1);
-    transform: translateY(-2px);
-  }
-  .hero__chip-icon {
-    width: 38px; height: 38px;
-    background: rgba(212,168,75,.1); border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
+
+  /* Individual product cards */
+  .hero__card {
+    width: 260px; height: 180px;
+    border-radius: 18px;
     flex-shrink: 0;
+    position: relative; overflow: hidden;
+    cursor: default;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    transition: transform .3s, box-shadow .3s;
   }
-  .hero__chip-icon svg { width: 18px; height: 18px; }
-  .hero__chip-name {
-    font-size: 14px; font-weight: 700;
-    color: var(--navy); display: block; margin-bottom: 2px;
+  .hero__track:hover .hero__card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 32px rgba(0,0,0,.2);
   }
-  .hero__chip-desc { font-size: 12px; color: #8a9aac; }
+  .hero__card-bg {
+    position: absolute; inset: 0;
+  }
+  .hero__card-pattern {
+    position: absolute; inset: 0; opacity: .08;
+    background-image:
+      linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .hero__card-icon {
+    position: absolute;
+    top: 24px; left: 50%; transform: translateX(-50%);
+  }
+  .hero__card-icon svg { width: 64px; height: 64px; }
+  .hero__card-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 100%);
+  }
+  .hero__card-name {
+    font-family: var(--font-head);
+    font-size: 16px; font-weight: 700;
+    color: #fff; letter-spacing: .03em;
+    display: block; margin-bottom: 2px;
+  }
+  .hero__card-detail {
+    font-size: 12px; color: rgba(255,255,255,.75);
+    font-weight: 400;
+  }
 
   /* ═══════════════════════════════════════════
        ABOUT US
@@ -980,21 +863,14 @@
     .contact__form-wrap { padding:28px 20px; }
     .footer__grid { grid-template-columns:1fr; gap:32px; }
   }
-  @media (max-width:900px) {
-    .hero__body { grid-template-columns: 1fr; gap: 40px; }
-    .hero__visual { order: -1; max-width: 480px; margin: 0 auto; width: 100%; }
-    .hero__float-badge--2 { display: none; }
-    .hero__chips-wrap { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width:640px) {
-    .hero__body { padding: 40px 24px 32px; }
-    .hero__float-badge--1 { top: -10px; right: 16px; font-size: 12px; padding: 6px 12px 6px 8px; }
+    .hero__center { padding: 60px 24px 40px; }
+    .hero__title { font-size: clamp(32px, 8vw, 48px); }
+    .hero__desc { font-size: 16px; }
+    .hero__card { width: 220px; height: 155px; }
   }
   @media (max-width:480px) {
     .industries__grid { grid-template-columns:1fr; }
-    .hero__chips-wrap { grid-template-columns: 1fr 1fr; }
-    .hero__stats-row { flex-wrap: wrap; gap: 16px; }
-    .hero__stat-item { border-right: none; padding-right: 0; margin-right: 0; }
   }
 </style>
 </head>
@@ -1025,168 +901,267 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero" id="hero">
-  <div class="hero__orb hero__orb--1"></div>
-  <div class="hero__orb hero__orb--2"></div>
 
-  <div class="hero__main">
-    <div class="hero__body">
-
-      <!-- Content column -->
-      <div class="hero__content">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          Industrial Fastener Supplier · Lahore, Pakistan
-        </div>
-        <h1 class="hero__title">
-          Small Parts.<br>
-          <span class="line2">Serious Standards.</span>
-        </h1>
-        <p class="hero__sub">
-          Supplying garment factories, leather goods manufacturers, and industrial units with precision metal eyelets, washers, and shoe hooks since 2007. Parts that fit. Orders that arrive.
-        </p>
-        <div class="hero__actions">
-          <a href="#products" class="btn--hero-primary">
-            Browse Products
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="#contact" class="btn--hero-ghost">Request Bulk Quote</a>
-        </div>
-        <div class="hero__stats-row">
-          <div class="hero__stat-item">
-            <div class="hero__stat-val">17+</div>
-            <div class="hero__stat-lbl">Years Active</div>
-          </div>
-          <div class="hero__stat-item">
-            <div class="hero__stat-val">180+</div>
-            <div class="hero__stat-lbl">Product Variants</div>
-          </div>
-          <div class="hero__stat-item">
-            <div class="hero__stat-val">5M+</div>
-            <div class="hero__stat-lbl">Units / Year</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Visual column -->
-      <div class="hero__visual">
-        <div class="hero__float-badge hero__float-badge--1">
-          <span class="hero__float-dot" style="background:#22c55e;"></span>
-          40+ Active Clients
-        </div>
-        <div class="hero__visual-card">
-          <div class="hero__vc-header">
-            <span class="hero__vc-label">Product Range</span>
-            <span class="hero__vc-tag">Est. 2007</span>
-          </div>
-          <div class="hero__vc-grid">
-            <div class="hero__vc-product">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="20" stroke="#d4a84b" stroke-width="2"/>
-                <circle cx="24" cy="24" r="13" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <circle cx="24" cy="24" r="6" fill="#d4a84b" opacity=".6"/>
-                <circle cx="24" cy="24" r="2.5" fill="#d4a84b"/>
-              </svg>
-              <span class="hero__vc-product-name">Eyelets</span>
-              <span class="hero__vc-product-detail">5 variants · 4 materials</span>
-            </div>
-            <div class="hero__vc-product">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="19" stroke="#9aa5b4" stroke-width="2.5"/>
-                <circle cx="24" cy="24" r="12" stroke="#9aa5b4" stroke-width="1.5" opacity=".7"/>
-                <circle cx="24" cy="24" r="5" fill="#9aa5b4" opacity=".35"/>
-                <circle cx="24" cy="24" r="16" stroke="#d4a84b" stroke-width="1" opacity=".4" stroke-dasharray="2 3"/>
-              </svg>
-              <span class="hero__vc-product-name">Washers</span>
-              <span class="hero__vc-product-detail">3 types · custom OD/ID</span>
-            </div>
-            <div class="hero__vc-product">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 9C24 9 34 9 34 18C34 25 27 27 24 27C21 27 14 28.5 14 36C14 42 21 44 24 44" stroke="#d4a84b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <circle cx="24" cy="8.5" r="3.5" fill="#d4a84b" opacity=".7"/>
-                <path d="M18 40L24 44L30 40" stroke="#d4a84b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </svg>
-              <span class="hero__vc-product-name">Shoe Hooks</span>
-              <span class="hero__vc-product-detail">3 hook types · 4 finishes</span>
-            </div>
-            <div class="hero__vc-product">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="17" cy="17" r="10" stroke="#d4a84b" stroke-width="2"/>
-                <circle cx="17" cy="17" r="4" fill="#d4a84b" opacity=".5"/>
-                <circle cx="31" cy="31" r="10" stroke="#9aa5b4" stroke-width="2"/>
-                <circle cx="31" cy="31" r="4" fill="#9aa5b4" opacity=".4"/>
-                <line x1="23" y1="23" x2="25" y2="25" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="2 2"/>
-              </svg>
-              <span class="hero__vc-product-name">Combo Sets</span>
-              <span class="hero__vc-product-detail">Matched &amp; pre-paired</span>
-            </div>
-          </div>
-          <div class="hero__vc-footer">
-            <span class="hero__vc-footer-text">180+ Variants Available</span>
-            <span class="hero__vc-footer-arrow">→</span>
-          </div>
-        </div>
-        <div class="hero__float-badge hero__float-badge--2">
-          <span class="hero__float-dot" style="background:#d4a84b;"></span>
-          Ships from Lahore
-        </div>
-      </div>
-
+  <!-- Centered headline block -->
+  <div class="hero__center">
+    <span class="hero__eyebrow">Lahore, Pakistan · Est. 2007</span>
+    <h1 class="hero__title">Small Parts.<br>Serious Standards.</h1>
+    <p class="hero__desc">Precision metal eyelets, washers, and shoe hooks — manufactured in bulk for factories across Pakistan.</p>
+    <div class="hero__actions">
+      <a href="#products" class="btn--hero-primary">Browse Products</a>
+      <a href="#contact" class="btn--hero-ghost">Request a Quote</a>
     </div>
   </div>
 
-  <!-- Copilot-style product chips bar -->
-  <div class="hero__chips-bar">
-    <div class="hero__chips-wrap">
-      <a href="#products" class="hero__chip" onclick="setTimeout(()=>showFamily('eyelets',document.querySelectorAll('.products__tab')[0]),400)">
-        <div class="hero__chip-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="9" stroke="#d4a84b" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4" fill="#d4a84b" opacity=".6"/>
-          </svg>
+  <!-- Infinite scrolling product carousel -->
+  <div class="hero__carousel">
+    <div class="hero__track" id="heroTrack">
+
+      <!-- ── Set 1 ── -->
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a1a2e 0%,#2d1f0e 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#d4a84b" stroke-width="2.5"/><circle cx="32" cy="32" r="17" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="32" cy="32" r="8" fill="#d4a84b" opacity=".65"/><circle cx="32" cy="32" r="3" fill="#d4a84b"/></svg>
         </div>
-        <div>
-          <span class="hero__chip-name">Eyelets</span>
-          <span class="hero__chip-desc">Shoes · Leather · Garments · Tarpaulin</span>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Shoes Eyelets</span>
+          <span class="hero__card-detail">Brass · Nickel · Antique Gold</span>
         </div>
-      </a>
-      <a href="#products" class="hero__chip" onclick="setTimeout(()=>showFamily('washers',document.querySelectorAll('.products__tab')[1]),400)">
-        <div class="hero__chip-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="9" stroke="#9aa5b4" stroke-width="2.5"/>
-            <circle cx="12" cy="12" r="4" fill="#9aa5b4" opacity=".35"/>
-          </svg>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2c1810 0%,#4a2c1a 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#c8a060" stroke-width="2.5"/><circle cx="32" cy="32" r="18" stroke="#c8a060" stroke-width="2" opacity=".7"/><circle cx="32" cy="32" r="9" fill="#c8a060" opacity=".5"/><circle cx="32" cy="32" r="3.5" fill="#c8a060"/></svg>
         </div>
-        <div>
-          <span class="hero__chip-name">Washers</span>
-          <span class="hero__chip-desc">Industrial · Tarpaulin · Shoe-Backed</span>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Leather Eyelets</span>
+          <span class="hero__card-detail">Heavy Gauge · Anti-rust</span>
         </div>
-      </a>
-      <a href="#products" class="hero__chip" onclick="setTimeout(()=>showFamily('hooks',document.querySelectorAll('.products__tab')[2]),400)">
-        <div class="hero__chip-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4C12 4 17 4 17 9C17 13 13.5 14 12 14C10.5 14 7 14.5 7 18.5C7 21.5 10 22.5 12 22.5" stroke="#d4a84b" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#7ecef4" stroke-width="2"/><circle cx="32" cy="32" r="16" stroke="#7ecef4" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="32" cy="32" r="7" fill="#7ecef4" opacity=".5"/><circle cx="32" cy="32" r="2.5" fill="#7ecef4"/></svg>
         </div>
-        <div>
-          <span class="hero__chip-name">Shoe Hooks</span>
-          <span class="hero__chip-desc">Speed · Loop · Claw · Custom</span>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Garments Eyelets</span>
+          <span class="hero__card-detail">Gunmetal · Matte Black · Gold</span>
         </div>
-      </a>
-      <a href="#oem" class="hero__chip">
-        <div class="hero__chip-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#d4a84b" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#134e5e 0%,#1a6b5a 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#6dcfb0" stroke-width="3"/><circle cx="32" cy="32" r="18" stroke="#6dcfb0" stroke-width="2" opacity=".6"/><circle cx="32" cy="32" r="8" fill="#6dcfb0" opacity=".4"/></svg>
         </div>
-        <div>
-          <span class="hero__chip-name">Custom OEM</span>
-          <span class="hero__chip-desc">Non-standard sizes · Any finish</span>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Tarpaulin Eyelets</span>
+          <span class="hero__card-detail">Zinc · Stainless · Anti-Rust</span>
         </div>
-      </a>
-    </div>
-  </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2d3748 0%,#4a5568 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#a0aec0" stroke-width="3.5"/><circle cx="32" cy="32" r="16" stroke="#a0aec0" stroke-width="2" opacity=".6"/><circle cx="32" cy="32" r="6" fill="#a0aec0" opacity=".3"/><circle cx="32" cy="32" r="22" stroke="#d4a84b" stroke-width="1" opacity=".4" stroke-dasharray="3 4"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Industrial Washers</span>
+          <span class="hero__card-detail">Flat · Stainless · Custom OD/ID</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#4a3728 0%,#7a5a20 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 12C32 12 46 12 46 24C46 33 37 36 32 36C27 36 18 38 18 47C18 54 26 57 32 57" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="32" cy="11" r="5" fill="#d4a84b" opacity=".8"/><path d="M23 52L32 57L41 52" stroke="#d4a84b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Speed Hooks</span>
+          <span class="hero__card-detail">D-Ring · Brass · Sizes 0–5</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a1a1a 0%,#383838 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 12C32 12 44 12 44 22C44 30 37 33 32 33C27 33 20 35 20 43C20 50 27 52 32 52" stroke="#9aa5b4" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="32" cy="11" r="4.5" fill="#9aa5b4" opacity=".7"/><path d="M24 48L32 52L40 48" stroke="#9aa5b4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Loop Hooks</span>
+          <span class="hero__card-detail">Low Profile · Gunmetal · Gold</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#0f1b2d 0%,#1e3050 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="22" r="13" stroke="#d4a84b" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="#d4a84b" opacity=".5"/><circle cx="42" cy="42" r="13" stroke="#9aa5b4" stroke-width="2"/><circle cx="42" cy="42" r="5" fill="#9aa5b4" opacity=".4"/><line x1="31" y1="31" x2="33" y2="33" stroke="#d4a84b" stroke-width="2" stroke-dasharray="3 2"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Eyelet &amp; Washer Sets</span>
+          <span class="hero__card-detail">Matched · Pre-paired · Bulk</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2d1b69 0%,#1a3a5e 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M32 8L8 20v24l24 12 24-12V20L32 8z"/><path d="M8 20l24 12 24-12"/><line x1="32" y1="32" x2="32" y2="56"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Custom OEM</span>
+          <span class="hero__card-detail">Any size · Any finish · Sample first</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a2c1a 0%,#2d4a2d 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#68d391" stroke-width="3"/><circle cx="32" cy="32" r="16" stroke="#68d391" stroke-width="1.5" opacity=".55"/><circle cx="32" cy="32" r="7" fill="#68d391" opacity=".4"/><path d="M21 32l8 8 14-14" stroke="#68d391" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Claw Hooks</span>
+          <span class="hero__card-detail">Heavy Duty · Wide Throat</span>
+        </div>
+      </div>
+
+      <!-- ── Set 2 (duplicate for seamless loop) ── -->
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a1a2e 0%,#2d1f0e 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#d4a84b" stroke-width="2.5"/><circle cx="32" cy="32" r="17" stroke="#d4a84b" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="32" cy="32" r="8" fill="#d4a84b" opacity=".65"/><circle cx="32" cy="32" r="3" fill="#d4a84b"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Shoes Eyelets</span>
+          <span class="hero__card-detail">Brass · Nickel · Antique Gold</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2c1810 0%,#4a2c1a 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#c8a060" stroke-width="2.5"/><circle cx="32" cy="32" r="18" stroke="#c8a060" stroke-width="2" opacity=".7"/><circle cx="32" cy="32" r="9" fill="#c8a060" opacity=".5"/><circle cx="32" cy="32" r="3.5" fill="#c8a060"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Leather Eyelets</span>
+          <span class="hero__card-detail">Heavy Gauge · Anti-rust</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#7ecef4" stroke-width="2"/><circle cx="32" cy="32" r="16" stroke="#7ecef4" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="32" cy="32" r="7" fill="#7ecef4" opacity=".5"/><circle cx="32" cy="32" r="2.5" fill="#7ecef4"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Garments Eyelets</span>
+          <span class="hero__card-detail">Gunmetal · Matte Black · Gold</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#134e5e 0%,#1a6b5a 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="27" stroke="#6dcfb0" stroke-width="3"/><circle cx="32" cy="32" r="18" stroke="#6dcfb0" stroke-width="2" opacity=".6"/><circle cx="32" cy="32" r="8" fill="#6dcfb0" opacity=".4"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Tarpaulin Eyelets</span>
+          <span class="hero__card-detail">Zinc · Stainless · Anti-Rust</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2d3748 0%,#4a5568 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#a0aec0" stroke-width="3.5"/><circle cx="32" cy="32" r="16" stroke="#a0aec0" stroke-width="2" opacity=".6"/><circle cx="32" cy="32" r="6" fill="#a0aec0" opacity=".3"/><circle cx="32" cy="32" r="22" stroke="#d4a84b" stroke-width="1" opacity=".4" stroke-dasharray="3 4"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Industrial Washers</span>
+          <span class="hero__card-detail">Flat · Stainless · Custom OD/ID</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#4a3728 0%,#7a5a20 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 12C32 12 46 12 46 24C46 33 37 36 32 36C27 36 18 38 18 47C18 54 26 57 32 57" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="32" cy="11" r="5" fill="#d4a84b" opacity=".8"/><path d="M23 52L32 57L41 52" stroke="#d4a84b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Speed Hooks</span>
+          <span class="hero__card-detail">D-Ring · Brass · Sizes 0–5</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a1a1a 0%,#383838 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 12C32 12 44 12 44 22C44 30 37 33 32 33C27 33 20 35 20 43C20 50 27 52 32 52" stroke="#9aa5b4" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="32" cy="11" r="4.5" fill="#9aa5b4" opacity=".7"/><path d="M24 48L32 52L40 48" stroke="#9aa5b4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Loop Hooks</span>
+          <span class="hero__card-detail">Low Profile · Gunmetal · Gold</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#0f1b2d 0%,#1e3050 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="22" cy="22" r="13" stroke="#d4a84b" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="#d4a84b" opacity=".5"/><circle cx="42" cy="42" r="13" stroke="#9aa5b4" stroke-width="2"/><circle cx="42" cy="42" r="5" fill="#9aa5b4" opacity=".4"/><line x1="31" y1="31" x2="33" y2="33" stroke="#d4a84b" stroke-width="2" stroke-dasharray="3 2"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Eyelet &amp; Washer Sets</span>
+          <span class="hero__card-detail">Matched · Pre-paired · Bulk</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#2d1b69 0%,#1a3a5e 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M32 8L8 20v24l24 12 24-12V20L32 8z"/><path d="M8 20l24 12 24-12"/><line x1="32" y1="32" x2="32" y2="56"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Custom OEM</span>
+          <span class="hero__card-detail">Any size · Any finish · Sample first</span>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__card-bg" style="background:linear-gradient(135deg,#1a2c1a 0%,#2d4a2d 100%)"></div>
+        <div class="hero__card-pattern"></div>
+        <div class="hero__card-icon">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="#68d391" stroke-width="3"/><circle cx="32" cy="32" r="16" stroke="#68d391" stroke-width="1.5" opacity=".55"/><circle cx="32" cy="32" r="7" fill="#68d391" opacity=".4"/><path d="M21 32l8 8 14-14" stroke="#68d391" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="hero__card-label">
+          <span class="hero__card-name">Claw Hooks</span>
+          <span class="hero__card-detail">Heavy Duty · Wide Throat</span>
+        </div>
+      </div>
+
+    </div><!-- /hero__track -->
+  </div><!-- /hero__carousel -->
+
 </section>
 
 <!-- ─── ABOUT US ─── -->
