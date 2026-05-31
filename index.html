@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Eyelets Hub | Metal Eyelets Manufacturer &amp; Bulk Supplier — Lahore, Pakistan</title>
-<meta name="description" content="Metal eyelets manufacturer in Lahore, Pakistan. Bulk supply of shoes eyelets, leather eyelets, garment eyelets, tarpaulin eyelets, washers &amp; shoe hooks. Est. 2007. Custom OEM available." />
+<meta name="description" content="Metal eyelets manufacturer in Lahore, Pakistan. Bulk supply of shoes eyelets, leather eyelets, garment eyelets, tarpaulin eyelets, washers &amp; shoe hooks. Est. 1990. Custom OEM available." />
 <meta name="keywords" content="metal eyelets manufacturer Pakistan, eyelets supplier Lahore, shoes eyelets bulk, leather eyelets Pakistan, garments eyelets supplier, tarpaulin eyelets Lahore, tent eyelets Pakistan, industrial washers manufacturer, shoe hooks supplier Pakistan, grommets Pakistan, eyelet washer sets bulk, OEM fasteners Pakistan, Fateh Garh Lahore, metal fasteners Lahore" />
 <link rel="canonical" href="https://eyeletshub.com/" />
 
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://eyeletshub.com/" />
 <meta property="og:title" content="Eyelets Hub | Metal Eyelets Manufacturer &amp; Bulk Supplier, Lahore" />
-<meta property="og:description" content="Lahore-based metal eyelets &amp; fastener manufacturer since 2007. Bulk supply of shoes eyelets, leather eyelets, garment eyelets, tarpaulin eyelets, washers, shoe hooks &amp; custom OEM parts." />
+<meta property="og:description" content="Lahore-based metal eyelets &amp; fastener manufacturer since 1990. Bulk supply of shoes eyelets, leather eyelets, garment eyelets, tarpaulin eyelets, washers, shoe hooks &amp; custom OEM parts." />
 <meta property="og:image" content="https://eyeletshub.com/og-image.jpg" />
 <meta property="og:locale" content="en_PK" />
 <meta property="og:site_name" content="Eyelets Hub" />
@@ -20,7 +20,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Eyelets Hub | Metal Eyelets Manufacturer, Lahore Pakistan" />
-<meta name="twitter:description" content="Bulk metal eyelets, washers, shoe hooks &amp; grommets from Lahore. Serving Pakistani manufacturers since 2007. Custom OEM available." />
+<meta name="twitter:description" content="Bulk metal eyelets, washers, shoe hooks &amp; grommets from Lahore. Serving Pakistani manufacturers since 1990. Custom OEM available." />
 <meta name="twitter:image" content="https://eyeletshub.com/og-image.jpg" />
 
 <!-- Geographic / Local SEO -->
@@ -42,11 +42,11 @@
       "@type": ["LocalBusiness", "Organization"],
       "@id": "https://eyeletshub.com/#organization",
       "name": "Eyelets Hub",
-      "description": "Manufacturer and bulk supplier of metal eyelets, washers, shoe hooks, and grommets in Lahore, Pakistan. Serving textile, leather, and industrial factories since 2007.",
+      "description": "Manufacturer and bulk supplier of metal eyelets, washers, shoe hooks, and grommets in Lahore, Pakistan. Serving textile, leather, and industrial factories since 1990.",
       "url": "https://eyeletshub.com/",
       "telephone": "+92-321-4048785",
       "email": "micro.molds@gmail.com",
-      "foundingDate": "2007",
+      "foundingDate": "1990",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Fateh Garh",
@@ -104,7 +104,7 @@
           "name": "Where is Eyelets Hub located and which areas do you serve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Eyelets Hub is located at Fateh Garh, Lahore, Punjab, Pakistan. We supply bulk orders to manufacturers in Lahore, Faisalabad, Sialkot, Karachi, Gujranwala, Multan, and across Pakistan. We have been operating from this location since 2007."
+            "text": "Eyelets Hub is located at Fateh Garh, Lahore, Punjab, Pakistan. We supply bulk orders to manufacturers in Lahore, Faisalabad, Sialkot, Karachi, Gujranwala, Multan, and across Pakistan. We have been operating from this location since 1990."
           }
         },
         {
@@ -310,8 +310,8 @@
   }
   .hero__eyebrow {
     display: inline-block;
-    font-size: 13px; font-weight: 600;
-    letter-spacing: .14em; text-transform: uppercase;
+    font-size: 14px; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 20px;
   }
@@ -356,39 +356,25 @@
   }
   .btn--hero-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* Infinite scrolling carousel */
+  /* Semi-circle arc carousel */
   .hero__carousel {
     width: 100%;
+    height: 320px;
     overflow: hidden;
-    padding-bottom: 72px;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
   }
-  .hero__track {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: hero-scroll 65s linear infinite;
-  }
-  .hero__track:hover { animation-play-state: paused; }
-  @keyframes hero-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+  .hero__track { position: absolute; inset: 0; }
 
   /* Individual product cards */
   .hero__card {
     width: 260px; height: 180px;
     border-radius: 18px;
-    flex-shrink: 0;
-    position: relative; overflow: hidden;
+    position: absolute; overflow: hidden;
     cursor: default;
     box-shadow: 0 4px 20px rgba(0,0,0,.12);
-    transition: transform .3s, box-shadow .3s;
-  }
-  .hero__track:hover .hero__card:hover {
-    transform: scale(1.04);
-    box-shadow: 0 10px 32px rgba(0,0,0,.2);
+    will-change: transform, opacity;
   }
   .hero__card-bg {
     position: absolute; inset: 0;
@@ -1116,10 +1102,11 @@
     .trust-bar { display: none; }
   }
   @media (max-width:640px) {
-    .hero__center { padding: 60px 24px 40px; }
+    .hero__center { padding: 50px 24px 40px; }
     .hero__title { font-size: clamp(32px, 8vw, 48px); }
     .hero__desc { font-size: 16px; }
     .hero__card { width: 220px; height: 155px; }
+    .hero__carousel { height: 240px; }
   }
   @media (max-width:480px) {
     .industries__grid { grid-template-columns:1fr; }
@@ -1189,7 +1176,7 @@
           Fateh Garh, Lahore
         </span>
         <span class="topbar__sep">·</span>
-        <span class="topbar__item">Established 2007</span>
+        <span class="topbar__item">Established 1990</span>
         <span class="topbar__sep">·</span>
         <span class="topbar__item">5M+ units shipped annually</span>
       </div>
@@ -1229,16 +1216,16 @@
 
   <!-- Centered headline block -->
   <div class="hero__center">
-    <span class="hero__eyebrow">Metal Eyelets Manufacturer · Lahore, Pakistan · Est. 2007</span>
+    <span class="hero__eyebrow">Metal Eyelets Manufacturer and Trader · Lahore, Pakistan · Est. 1990</span>
     <h1 class="hero__title">Small Parts.<br>Serious Standards.</h1>
-    <p class="hero__desc">Precision metal eyelets, washers, and shoe hooks — manufactured in bulk for factories across Pakistan.</p>
+    <p class="hero__desc">Precision metal eyelets, washers, and shoe hooks — manufactured and traded in bulk across Pakistan.</p>
     <div class="hero__actions">
       <a href="#products" class="btn--hero-primary">Browse Products</a>
       <a href="#contact" class="btn--hero-ghost">Request a Quote</a>
     </div>
   </div>
 
-  <!-- Infinite scrolling product carousel -->
+  <!-- Semi-circle arc carousel -->
   <div class="hero__carousel">
     <div class="hero__track" id="heroTrack">
 
@@ -1519,7 +1506,7 @@
         </div>
         <div class="about__corner about__corner--br"></div>
         <div class="about__badge">
-          <div class="about__badge-num">2007</div>
+          <div class="about__badge-num">1990</div>
           <div class="about__badge-txt">Est. in Lahore</div>
         </div>
       </div>
@@ -1530,7 +1517,7 @@
           <h2>Built on the Shop Floor,<br>Not in a Boardroom</h2>
         </div>
         <p class="about__intro">
-          Eyelets Hub started in 2007 in Lahore with a single press machine and a handful of clients from the garment district. Seventeen years later, we still run the same way — closely, carefully, and with a lot of attention to what our clients actually need.
+          Eyelets Hub started in 1990 in Lahore with a single press machine and a handful of clients from the garment district. Seventeen years later, we still run the same way — closely, carefully, and with a lot of attention to what our clients actually need.
         </p>
         <p class="about__desc">
           We manufacture metal eyelets, washers, grommets, rivets, and snap fasteners for factories across the textile, leather, and industrial sectors. We're not the largest supplier in the market — and that's a choice. Staying at a size where we can stand behind every batch means our clients aren't chasing someone else's coordinator when a problem comes up. They call us directly.
@@ -2224,7 +2211,7 @@
           <div class="nav__logo-mark"><span>EH</span></div>
           <span class="nav__brand"><em>Eyelets</em> Hub</span>
         </a>
-        <p>Eyelets Hub — a Lahore-based manufacturer and bulk supplier of metal eyelets, washers, grommets, rivets, snap buttons, and custom metal fasteners. Serving Pakistani and international manufacturers since 2007.</p>
+        <p>Eyelets Hub — a Lahore-based manufacturer and bulk supplier of metal eyelets, washers, grommets, rivets, snap buttons, and custom metal fasteners. Serving Pakistani and international manufacturers since 1990.</p>
       </div>
       <div class="footer__col">
         <h4>Navigate</h4>
@@ -2358,6 +2345,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+// ── Semi-circle arc carousel ──────────────────────────────────────
+(function () {
+  var carousel = document.querySelector('.hero__carousel');
+  var cards    = Array.prototype.slice.call(document.querySelectorAll('.hero__card'));
+  var N = cards.length;
+  if (!N || !carousel) return;
+
+  var arcOffset = 0;
+  var paused    = false;
+
+  carousel.addEventListener('mouseenter', function () { paused = true; });
+  carousel.addEventListener('mouseleave', function () { paused = false; });
+
+  function frame() {
+    if (!paused) arcOffset -= 0.0007;
+
+    var W   = carousel.offsetWidth;
+    var mob = W <= 640;
+    var CW  = mob ? 220 : 260;
+    var CH  = mob ? 155 : 180;
+    var R   = mob ? 800 : 1600;
+    var cx  = W / 2;
+    var cy  = R + CH / 2 + 20;  // circle centre sits below the container
+
+    for (var i = 0; i < N; i++) {
+      var t       = arcOffset + (i / N) * Math.PI * 2;
+      var x       = cx + R * Math.sin(t);
+      var y       = cy - R * Math.cos(t);
+      var depth   = Math.max(0, Math.cos(t));   // 1 at top centre, 0 at sides
+      var scale   = (0.78 + 0.22 * depth).toFixed(3);
+      var opacity = (0.2  + 0.8  * depth).toFixed(3);
+      cards[i].style.transform = 'translate(' + (x - CW / 2).toFixed(1) + 'px,' +
+                                                (y - CH / 2).toFixed(1) + 'px) scale(' + scale + ')';
+      cards[i].style.opacity   = opacity;
+      cards[i].style.zIndex    = Math.round(depth * 10);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+}());
 </script>
 <!-- ─── WHATSAPP FLOAT ─── -->
 <a href="https://wa.me/923214048785" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
