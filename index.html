@@ -691,6 +691,14 @@
   .variant-card__desc {
     font-size: 14px; color: var(--text-mid); line-height: 1.65; margin-bottom: 16px;
   }
+  .variant-card__img {
+    display: block;
+    width: calc(100% + 48px);
+    height: 150px;
+    object-fit: cover;
+    margin: -26px -24px 20px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
   .variant-card__pills { display: flex; flex-wrap: wrap; gap: 6px; }
   .variant-card__pill {
     font-size: 12px; font-weight: 500; color: var(--steel-light);
@@ -1162,6 +1170,180 @@
   @media (max-width: 768px) {
     .faq__grid { grid-template-columns: 1fr; }
   }
+
+  /* ═══════════════════════════════════════════
+       OUR CLIENTS
+     ═══════════════════════════════════════════ */
+  .clients {
+    padding: 80px 0;
+    background: var(--white);
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+  .clients__header { text-align: center; margin-bottom: 48px; }
+  .clients__header .section-header { margin-bottom: 0; }
+  .clients__header .section-header__eyebrow { justify-content: center; }
+  .clients__header h2 { color: var(--navy); }
+  .clients__note {
+    font-size: 15px; color: var(--text-light); font-weight: 400;
+    max-width: 580px; margin: 12px auto 0; line-height: 1.7;
+  }
+  .clients__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .client-card {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 96px; padding: 20px 24px;
+    background: var(--off-white);
+    border-radius: 10px; border: 1px solid rgba(0,0,0,.06);
+    transition: background .25s, border-color .25s, box-shadow .25s;
+  }
+  .client-card:hover {
+    background: #fff;
+    border-color: rgba(212,168,75,.2);
+    box-shadow: var(--shadow-md);
+  }
+  .client-logo {
+    max-height: 46px; max-width: 130px;
+    width: auto; height: auto; object-fit: contain;
+    filter: grayscale(1) opacity(.55);
+    transition: filter .3s;
+    display: block;
+  }
+  .client-card:hover .client-logo { filter: grayscale(0) opacity(1); }
+  .client-name {
+    font-family: var(--font-head);
+    font-size: 15px; font-weight: 700;
+    color: var(--steel); letter-spacing: .04em;
+  }
+  @media (max-width: 1024px) { .clients__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px)  { .clients__grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ═══════════════════════════════════════════
+       PRODUCT MODAL
+     ═══════════════════════════════════════════ */
+  .variant-card { cursor: pointer; }
+  .modal {
+    position: fixed; inset: 0; z-index: 500;
+    display: none; align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .modal.open { display: flex; }
+  .modal__overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.58);
+    backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+    animation: modal-fade .25s ease;
+  }
+  @keyframes modal-fade { from { opacity:0; } to { opacity:1; } }
+  .modal__box {
+    position: relative; z-index: 1;
+    background: #fff; border-radius: 16px;
+    width: 100%; max-width: 740px; max-height: 90vh;
+    overflow-y: auto; scrollbar-width: thin;
+    box-shadow: 0 32px 80px rgba(0,0,0,.28), 0 8px 32px rgba(0,0,0,.14);
+    animation: modal-rise .32s cubic-bezier(.22,1,.36,1);
+  }
+  @keyframes modal-rise {
+    from { opacity:0; transform: translateY(22px) scale(.97); }
+    to   { opacity:1; transform: translateY(0) scale(1); }
+  }
+  .modal__close {
+    position: absolute; top: 14px; right: 14px; z-index: 2;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,.88); backdrop-filter: blur(4px);
+    border: none; cursor: pointer; color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    transition: background .2s, transform .25s;
+  }
+  .modal__close:hover { background: #fff; transform: scale(1.08) rotate(90deg); }
+  .modal__img {
+    display: block; width: 100%; height: 220px;
+    object-fit: cover; border-radius: 16px 16px 0 0;
+  }
+  .modal__body { padding: 28px 32px 36px; }
+  .modal__tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); background: rgba(212,168,75,.12);
+    padding: 4px 10px; border-radius: 4px; margin-bottom: 10px;
+  }
+  .modal__title {
+    font-size: 24px; font-weight: 800; color: var(--navy);
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .modal__desc {
+    font-size: 15px; color: #3a4a5e; line-height: 1.7; margin-bottom: 0;
+  }
+  .modal__section {
+    padding: 20px 0;
+    border-top: 1px solid var(--off-white);
+  }
+  .modal__section:last-of-type { padding-bottom: 0; }
+  .modal__section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .modal__table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    border: 1px solid rgba(0,0,0,.08); border-radius: 8px; overflow: hidden;
+  }
+  .modal__table th {
+    text-align: left; padding: 9px 13px;
+    background: var(--navy); color: var(--accent);
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .modal__table td {
+    padding: 9px 13px; color: var(--text-mid);
+    border-bottom: 1px solid var(--off-white); vertical-align: top;
+  }
+  .modal__table tr:last-child td { border-bottom: none; }
+  .modal__table tbody tr:nth-child(even) td { background: var(--off-white); }
+  .modal__table tbody tr:hover td { background: rgba(212,168,75,.06); }
+  /* Colors */
+  .modal__swatch-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--off-white);
+  }
+  .modal__swatch-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .modal__swatch-row-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--text-light);
+    min-width: 100px; flex-shrink: 0;
+  }
+  .modal__swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modal__swatch { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .modal__swatch-dot {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    border: 1.5px solid rgba(0,0,0,.12);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 1px 4px rgba(0,0,0,.1);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .modal__swatch-dot:hover { transform: scale(1.18); box-shadow: 0 3px 10px rgba(0,0,0,.18); }
+  .modal__swatch-name {
+    font-size: 10px; font-weight: 600; color: var(--text-light);
+    text-align: center; line-height: 1.3; max-width: 52px;
+  }
+  .modal__cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px; padding: 12px 28px; border-radius: 40px;
+    background: var(--navy); color: #fff;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    letter-spacing: .04em; transition: background .25s, transform .2s;
+  }
+  .modal__cta:hover { background: var(--navy-light); transform: translateY(-1px); }
+  @media (max-width: 600px) {
+    .modal__body { padding: 20px 20px 28px; }
+    .modal__img { height: 170px; }
+    .modal__title { font-size: 20px; }
+    .modal__swatch-row { flex-wrap: wrap; }
+    .modal__swatch-row-label { min-width: 100%; margin-bottom: 4px; }
+  }
 </style>
 </head>
 <body>
@@ -1604,6 +1786,7 @@
         </div>
         <div class="family__variants">
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/7966023/pexels-photo-7966023.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Shoes eyelets on footwear" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">01</div>
             <h4 class="variant-card__title">Shoes Eyelets</h4>
             <p class="variant-card__desc">Precision-stamped eyelets built for the lacing holes of footwear. Tight tolerances ensure a clean, burr-free finish that won't damage laces or fabric. Used by shoe manufacturers and exporters requiring consistent, high-volume supply.</p>
@@ -1615,6 +1798,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-1">
+            <img src="https://images.pexels.com/photos/6654754/pexels-photo-6654754.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Leather eyelets on leather goods" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">02</div>
             <h4 class="variant-card__title">Leather Eyelets</h4>
             <p class="variant-card__desc">Heavier-gauge eyelets designed for the stress demands of leather goods — belts, bags, saddlery, and leather garments. The flange width and wall thickness are calibrated to grip leather cleanly without cracking or pull-through under tension.</p>
@@ -1626,6 +1810,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-2">
+            <img src="https://images.pexels.com/photos/6358828/pexels-photo-6358828.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Garment eyelets on clothing" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">03</div>
             <h4 class="variant-card__title">Garments Eyelets</h4>
             <p class="variant-card__desc">Lighter, finer eyelets for textile and apparel applications — hoodies, jackets, corsets, and decorative garment detailing. Available in a wide range of finishes to suit brand aesthetics, from matte black to polished gold.</p>
@@ -1637,6 +1822,7 @@
             </div>
           </div>
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Tarpaulin and tent eyelets" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">04</div>
             <h4 class="variant-card__title">Tarpaulin &amp; Tent Eyelets</h4>
             <p class="variant-card__desc">Large-bore, heavy-duty eyelets for tarpaulins, marquee tents, truck covers, and outdoor shelters. Built to handle constant rope tension, weather exposure, and repeated staking without deforming or pulling out of the material.</p>
@@ -1648,6 +1834,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-2">
+            <img src="https://images.pexels.com/photos/5632395/pexels-photo-5632395.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Tag eyelets on product labels" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">05</div>
             <h4 class="variant-card__title">Tag Eyelets</h4>
             <p class="variant-card__desc">Small, lightweight eyelets designed for product tags — clothing labels, price tags, luggage tags, and merchandise hangtags. The compact bore and slim barrel allow thin cord or string to pass through cleanly without tearing the tag material.</p>
@@ -1659,6 +1846,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-3">
+            <img src="https://images.pexels.com/photos/6654766/pexels-photo-6654766.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Custom OEM eyelet manufacturing" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">06</div>
             <h4 class="variant-card__title">Custom &amp; Non-Standard Eyelets</h4>
             <p class="variant-card__desc">If your application doesn't fit a standard size, we manufacture to your drawings. Send us a sample or a spec sheet — we've produced branded eyelets, oversized variants, and special-finish runs for clients across multiple sectors.</p>
@@ -1687,6 +1875,7 @@
         </div>
         <div class="family__variants">
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/12951626/pexels-photo-12951626.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Industrial flat metal washers" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">01</div>
             <h4 class="variant-card__title">Industrial Flat Washers</h4>
             <p class="variant-card__desc">Standard flat washers for load distribution in assembly, fabrication, and industrial hardware applications. Available in a full range of OD/ID combinations and thickness grades.</p>
@@ -1698,6 +1887,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-1">
+            <img src="https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Tent and tarpaulin backing washers" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">02</div>
             <h4 class="variant-card__title">Tent &amp; Tarpaulin Washers</h4>
             <p class="variant-card__desc">Backing washers specifically sized to pair with tent and tarpaulin eyelets. The wider flange spreads the eyelet load across the fabric, preventing tear-out under rope tension and weather stress.</p>
@@ -1709,6 +1899,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-2">
+            <img src="https://images.pexels.com/photos/6654754/pexels-photo-6654754.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Shoe and leather backing washers" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">03</div>
             <h4 class="variant-card__title">Shoes &amp; Leather Backing Washers</h4>
             <p class="variant-card__desc">Small-profile washers that sit behind eyelets in footwear and leather goods, reinforcing the fixing point and giving a clean, professional back-face finish. Matched to our shoe and leather eyelet range.</p>
@@ -1737,6 +1928,7 @@
         </div>
         <div class="family__variants">
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/6199107/pexels-photo-6199107.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Speed D-ring lace hooks on boots" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">01</div>
             <h4 class="variant-card__title">Speed Hooks (D-Ring Hooks)</h4>
             <p class="variant-card__desc">The most common lacing hook — a D-shaped loop mounted on a flat base plate that crimps onto the boot upper. Fast to lace, secure under tension, and available in the standard size progression for ankle boots and work boots.</p>
@@ -1748,6 +1940,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-1">
+            <img src="https://images.pexels.com/photos/4173279/pexels-photo-4173279.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Flat loop hooks on dress boots" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">02</div>
             <h4 class="variant-card__title">Flat Loop Hooks</h4>
             <p class="variant-card__desc">A lower-profile hook with a flat oval loop, preferred for dress boots and fashion footwear where a cleaner visual line is needed. Crimps flat against the upper for minimal protrusion.</p>
@@ -1759,6 +1952,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-2">
+            <img src="https://images.pexels.com/photos/6654807/pexels-photo-6654807.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Claw hooks on heavy duty boots" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">03</div>
             <h4 class="variant-card__title">Claw Hooks</h4>
             <p class="variant-card__desc">A stronger hook with a wider throat and claw-grip base plate — used in heavy-duty boots, hiking footwear, and industrial safety shoes where lace tension and pull-out resistance are higher priorities.</p>
@@ -1770,6 +1964,7 @@
             </div>
           </div>
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/6654766/pexels-photo-6654766.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Custom OEM shoe hook manufacturing" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">04</div>
             <h4 class="variant-card__title">Custom Hook Types</h4>
             <p class="variant-card__desc">Non-standard hook profiles, custom base plate widths, or proprietary finishes manufactured to your design. We've produced branded hooks for footwear labels who want their hardware to be distinctive.</p>
@@ -1798,6 +1993,7 @@
         </div>
         <div class="family__variants">
           <div class="variant-card reveal">
+            <img src="https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Tent and tarpaulin eyelet and washer set" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">01</div>
             <h4 class="variant-card__title">Tent &amp; Tarpaulin Set</h4>
             <p class="variant-card__desc">Large-bore tent eyelet paired with its matching backing washer. The washer's OD is calculated to distribute the load across the tarpaulin fabric correctly for the eyelet size. Anti-rust coating standard.</p>
@@ -1808,6 +2004,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-1">
+            <img src="https://images.pexels.com/photos/7966023/pexels-photo-7966023.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Shoes eyelet and washer matched set" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">02</div>
             <h4 class="variant-card__title">Shoes Eyelet &amp; Washer Set</h4>
             <p class="variant-card__desc">Shoe eyelet with a matched backing washer — ideal for footwear manufacturers who want clean front and back faces on lacing holes. The washer prevents the eyelet base from cutting into the shoe lining.</p>
@@ -1818,6 +2015,7 @@
             </div>
           </div>
           <div class="variant-card reveal reveal-delay-2">
+            <img src="https://images.pexels.com/photos/4049356/pexels-photo-4049356.jpeg?auto=compress&cs=tinysrgb&w=560" alt="Custom matched eyelet and washer sets" class="variant-card__img" loading="lazy" width="560" height="150" />
             <div class="variant-card__num">03</div>
             <h4 class="variant-card__title">Custom Matched Sets</h4>
             <p class="variant-card__desc">We'll match any eyelet from our range with the correct washer and supply them as a kit. If you have your own washer spec, we can produce to that instead. Useful for brands standardising their hardware across a product line.</p>
@@ -1885,6 +2083,46 @@
         </div>
         <h3>Equipment & OEM</h3>
         <p>Manufacturers who need custom-spec fasteners built to proprietary drawings, with consistent quality across every production run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OUR CLIENTS ─── -->
+<section class="clients" id="clients">
+  <div class="container">
+    <div class="clients__header reveal">
+      <div class="section-header">
+        <div class="section-header__eyebrow">Our Clients</div>
+        <h2>Brands We Supply</h2>
+      </div>
+      <p class="clients__note">Our eyelets and hardware reach these leading footwear brands across Pakistan — some through direct factory orders, others through the manufacturers and suppliers we serve.</p>
+    </div>
+    <div class="clients__grid">
+      <div class="client-card reveal">
+        <img src="https://logo.clearbit.com/servis.com.pk" alt="Servis" class="client-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="client-name" style="display:none">Servis</span>
+      </div>
+      <div class="client-card reveal reveal-delay-1">
+        <img src="https://logo.clearbit.com/bata.com" alt="Bata" class="client-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="client-name" style="display:none">Bata</span>
+      </div>
+      <div class="client-card reveal reveal-delay-2">
+        <img src="https://logo.clearbit.com/ndure.com" alt="Ndure" class="client-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="client-name" style="display:none">Ndure</span>
+      </div>
+      <div class="client-card reveal reveal-delay-3">
+        <img src="https://logo.clearbit.com/hushpuppies.com" alt="Hush Puppies" class="client-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="client-name" style="display:none">Hush Puppies</span>
+      </div>
+      <div class="client-card reveal reveal-delay-4">
+        <img src="https://logo.clearbit.com/askarishoes.com" alt="Askari Shoes" class="client-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <span class="client-name" style="display:none">Askari Shoes</span>
       </div>
     </div>
   </div>
@@ -2398,12 +2636,425 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   requestAnimationFrame(frame);
 }());
+
+// ── Product Modal ─────────────────────────────────────────────────
+var COLORS = {
+  head: ['Color / Finish', 'Type', 'Notes'],
+  rows: [
+    ['Nickel',        'Plating',       'Bright silver tone'],
+    ['Antique',       'Plating',       'Aged dark metal finish'],
+    ['Brass Antique', 'Plating',       'Aged warm gold tone'],
+    ['White',         'Powder Coated', 'Clean, bright finish'],
+    ['Beige',         'Powder Coated', 'Neutral warm tone'],
+    ['Brown',         'Powder Coated', 'Earthy warm tone'],
+    ['Black',         'Powder Coated', 'Bold classic finish'],
+    ['Custom',        'Any type',      'Available on request'],
+  ]
+};
+
+var MATERIALS = {
+  head: ['Material', 'Grade', 'Notes'],
+  rows: [
+    ['Brass',           'Standard',         'Most common — warm gold finish'],
+    ['Brass Lead-free', 'RoHS compliant',   'Required for EU & US export markets'],
+    ['Brass 70%',       '70/30 Cu-Zn alloy','Cost-effective grade for bulk orders'],
+    ['Stainless Steel', 'Grade 304',        'Anti-rust, outdoor & heavy-duty use'],
+  ]
+};
+
+const PRODUCTS = {
+  'shoes-eyelets': {
+    tag:'Eyelets', title:'Shoes Eyelets',
+    img:'https://images.pexels.com/photos/7966023/pexels-photo-7966023.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Precision-stamped eyelets for footwear lacing holes. Tight tolerances deliver a burr-free finish that won\'t snag laces or damage fabric lining.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Brass','Natural warm gold','Dress & quality casual shoes'],
+      ['Nickel Plated','Bright silver','Sports & everyday footwear'],
+      ['Antique Brass','Aged warm tone','Heritage & fashion boots'],
+      ['Gunmetal','Dark grey matte','Work boots & tactical footwear'],
+    ],
+    sizeHead:['Size Ref.','Bore (ID)','Typical Use'],
+    sizes:[
+      ['#00','3.0 mm','Children\'s shoes, slim cord'],
+      ['#0','3.5 mm','Light casual shoes'],
+      ['#1','4.0 mm','Standard dress shoes'],
+      ['#2','4.5 mm','Casual & sports shoes'],
+      ['#3','5.0 mm','Boots — most common'],
+      ['#4','6.0 mm','Heavy boots & work footwear'],
+    ],
+  },
+  'leather-eyelets': {
+    tag:'Eyelets', title:'Leather Eyelets',
+    img:'https://images.pexels.com/photos/6654754/pexels-photo-6654754.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Heavier-gauge eyelets built for belts, bags, saddlery, and leather garments. Flange width and wall thickness prevent pull-through under tension.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Brass','Natural warm gold','Belts, bags, saddlery'],
+      ['Stainless Steel','Brushed silver','High-durability leather goods'],
+      ['Antique Gold','Aged gold','Premium leather fashion'],
+      ['Nickel Plated','Bright silver','Leather accessories'],
+    ],
+    sizeHead:['Size','Bore (ID)','Typical Use'],
+    sizes:[
+      ['4 mm','4.0 mm','Fine leather accessories'],
+      ['5 mm','5.0 mm','Belts & wallets'],
+      ['6 mm','6.0 mm','Bags & saddlery'],
+      ['8 mm','8.0 mm','Heavy leather goods'],
+      ['10 mm','10.0 mm','Thick industrial leather'],
+    ],
+  },
+  'garments-eyelets': {
+    tag:'Eyelets', title:'Garments Eyelets',
+    img:'https://images.pexels.com/photos/6358828/pexels-photo-6358828.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Lightweight eyelets for hoodies, jackets, corsets, and decorative garment details. Wide finish range to match brand aesthetics from matte to polished.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Gunmetal','Dark grey matte','Hoodies, jackets, workwear'],
+      ['Matte Black','Flat black','Fashion & streetwear'],
+      ['Gold Plated','Bright gold','Formal & luxury garments'],
+      ['Silver','Bright silver','Sportswear & casual'],
+    ],
+    sizeHead:['Size','Bore (ID)','Typical Use'],
+    sizes:[
+      ['3 mm','3.0 mm','Fine cord, thin drawstrings'],
+      ['4 mm','4.0 mm','Standard hoodie cord'],
+      ['5 mm','5.0 mm','Jacket drawstrings'],
+      ['6 mm','6.0 mm','Heavy cord & rope'],
+    ],
+  },
+  'tarpaulin-tent-eyelets': {
+    tag:'Eyelets', title:'Tarpaulin & Tent Eyelets',
+    img:'https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Large-bore heavy-duty eyelets for tarps, truck covers, and outdoor shelters. Built to handle constant rope tension and weather exposure without deforming.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Zinc Alloy','Anti-rust coated','Standard tarps & covers'],
+      ['Stainless Steel','Natural','Marine & harsh weather'],
+      ['Galvanised Steel','Zinc coated','Heavy industrial use'],
+    ],
+    sizeHead:['Size','Bore (ID)','Typical Use'],
+    sizes:[
+      ['10 mm','10 mm','Light tarpaulins'],
+      ['12 mm','12 mm','Standard tarps & covers'],
+      ['15 mm','15 mm','Truck covers, heavy tarps'],
+      ['20 mm','20 mm','Large tents & marquees'],
+      ['25 mm','25 mm','Heavy industrial shelter'],
+    ],
+  },
+  'tag-eyelets': {
+    tag:'Eyelets', title:'Tag Eyelets',
+    img:'https://images.pexels.com/photos/5632395/pexels-photo-5632395.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Small, lightweight eyelets for clothing labels, price tags, luggage tags, and merchandise hangtags. Compact bore lets thin cord pass cleanly without tearing the tag.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Brass','Warm gold','Premium garment tags'],
+      ['Nickel Plated','Bright silver','General retail tags'],
+      ['Gold Plated','Bright gold','Luxury brand labels'],
+    ],
+    sizeHead:['Size','Bore (ID)','Typical Use'],
+    sizes:[
+      ['2.0 mm','2.0 mm','Fine string, thin cord'],
+      ['2.5 mm','2.5 mm','Standard tag cord'],
+      ['3.0 mm','3.0 mm','Thick ribbon & tape'],
+      ['4.0 mm','4.0 mm','Wide ribbon, hang tags'],
+    ],
+  },
+  'custom-non-standard-eyelets': {
+    tag:'Eyelets', title:'Custom & Non-Standard Eyelets',
+    img:'https://images.pexels.com/photos/6654766/pexels-photo-6654766.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Manufactured to your drawings, sample, or written spec. Custom sizes, non-standard profiles, special finishes, and OEM branding all available.',
+    matHead:['Material','Finish','Notes'],
+    materials:[
+      ['Brass','Any plating available','Standard base material'],
+      ['Stainless Steel','Natural or coated','Corrosion-resistant applications'],
+      ['Zinc Alloy','Custom coated','Cost-effective high-volume'],
+      ['Custom Alloy','To specification','Per client requirement'],
+    ],
+    sizeHead:['Parameter','Value','Notes'],
+    sizes:[
+      ['Inner Diameter','To spec','Per drawing or sample'],
+      ['Outer Diameter','To spec','Per drawing or sample'],
+      ['Barrel Height','To spec','Per drawing or sample'],
+      ['Flange Width','To spec','Per drawing or sample'],
+    ],
+  },
+  'industrial-flat-washers': {
+    tag:'Washers', title:'Industrial Flat Washers',
+    img:'https://images.pexels.com/photos/12951626/pexels-photo-12951626.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Standard flat washers for load distribution in assembly, fabrication, and industrial hardware. Full range of OD/ID combinations and thickness grades.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Stainless Steel','Natural','General fabrication'],
+      ['Mild Steel','Plain / Zn coated','Cost-effective assembly'],
+      ['Aluminum','Natural','Lightweight applications'],
+      ['Brass','Natural','Corrosion-resistant use'],
+    ],
+    sizeHead:['Size Ref.','ID × OD','Typical Use'],
+    sizes:[
+      ['M4','4 × 9 mm','Light hardware assembly'],
+      ['M5','5 × 10 mm','General fastening'],
+      ['M6','6 × 12 mm','Standard industrial'],
+      ['M8','8 × 16 mm','Medium load bearing'],
+      ['M10','10 × 20 mm','Heavy assembly'],
+      ['M12','12 × 24 mm','Structural applications'],
+    ],
+  },
+  'tent-tarpaulin-washers': {
+    tag:'Washers', title:'Tent & Tarpaulin Washers',
+    img:'https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Backing washers sized to pair with tent and tarpaulin eyelets. Wider flange distributes load across the fabric, preventing tear-out under rope tension.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Zinc Coated','Anti-rust','Outdoor & tarp use'],
+      ['Stainless Steel','Natural','Marine / harsh weather'],
+      ['Galvanised Steel','Zn plated','Industrial outdoor'],
+    ],
+    sizeHead:['OD','OD × ID','Pairs With'],
+    sizes:[
+      ['20 mm','20 × 10 mm','10 mm eyelet'],
+      ['25 mm','25 × 12 mm','12 mm eyelet'],
+      ['30 mm','30 × 15 mm','15 mm eyelet'],
+      ['40 mm','40 × 20 mm','20 mm eyelet'],
+    ],
+  },
+  'shoes-leather-backing-washers': {
+    tag:'Washers', title:'Shoes & Leather Backing Washers',
+    img:'https://images.pexels.com/photos/6654754/pexels-photo-6654754.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Small-profile washers that reinforce the eyelet fixing point in footwear and leather goods, giving a clean professional back-face finish.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Brass','Natural warm gold','Matches brass eyelets'],
+      ['Nickel','Bright silver','Matches nickel eyelets'],
+    ],
+    sizeHead:['OD','OD × ID','Pairs With'],
+    sizes:[
+      ['8 mm','8 × 4.0 mm','#0–#1 eyelets'],
+      ['10 mm','10 × 4.5 mm','#2 eyelets'],
+      ['12 mm','12 × 5.0 mm','#3 eyelets'],
+      ['14 mm','14 × 6.0 mm','#4 eyelets'],
+    ],
+  },
+  'speed-hooks-d-ring-hooks': {
+    tag:'Shoe Hooks', title:'Speed Hooks (D-Ring Hooks)',
+    img:'https://images.pexels.com/photos/6199107/pexels-photo-6199107.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'D-shaped loop on a flat base plate that crimps onto the boot upper. Fast to lace, secure under tension, available in standard size progression for ankle and work boots.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Brass','Natural warm gold','Classic work & dress boots'],
+      ['Nickel Plated','Bright silver','Sports & casual boots'],
+      ['Antique Bronze','Aged warm tone','Heritage & fashion boots'],
+      ['Gunmetal','Dark grey matte','Tactical & military footwear'],
+    ],
+    sizeHead:['Size','Base Width','Typical Boot'],
+    sizes:[
+      ['0','~10 mm','Children\'s & slim boots'],
+      ['1','~11 mm','Light boots'],
+      ['2','~12 mm','Most common boots'],
+      ['3','~13 mm','Work & ankle boots'],
+      ['4','~14 mm','Heavy work boots'],
+      ['5','~15 mm','Industrial & military'],
+    ],
+  },
+  'flat-loop-hooks': {
+    tag:'Shoe Hooks', title:'Flat Loop Hooks',
+    img:'https://images.pexels.com/photos/4173279/pexels-photo-4173279.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Lower-profile hook with a flat oval loop, preferred for dress boots and fashion footwear where a cleaner visual line is needed.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Gunmetal','Dark grey matte','Fashion & dress boots'],
+      ['Gold Plated','Bright gold','Luxury footwear'],
+      ['Matte Black','Flat black','Contemporary fashion boots'],
+    ],
+    sizeHead:['Size','Base Width','Typical Boot'],
+    sizes:[
+      ['0','~10 mm','Slim fashion boots'],
+      ['1','~11 mm','Dress boots'],
+      ['2','~12 mm','Most ankle boots'],
+      ['3','~13 mm','Over-the-knee styles'],
+    ],
+  },
+  'claw-hooks': {
+    tag:'Shoe Hooks', title:'Claw Hooks',
+    img:'https://images.pexels.com/photos/6654807/pexels-photo-6654807.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Wider throat and claw-grip base plate for heavy-duty boots, hiking footwear, and industrial safety shoes where lace tension and pull-out resistance are priorities.',
+    matHead:['Material','Finish','Best For'],
+    materials:[
+      ['Stainless Steel','Natural','Industrial & safety footwear'],
+      ['Zinc Alloy','Anti-rust coated','Work boots'],
+      ['Nickel Plated','Bright silver','Heavy-duty boots'],
+    ],
+    sizeHead:['Size','Base Width','Typical Boot'],
+    sizes:[
+      ['0','~10 mm','Light duty boots'],
+      ['1','~11 mm','General boots'],
+      ['2','~12 mm','Work boots'],
+      ['3','~13 mm','Heavy work boots'],
+      ['4','~14 mm','Industrial boots'],
+      ['5','~15 mm','Safety & military'],
+    ],
+  },
+  'custom-hook-types': {
+    tag:'Shoe Hooks', title:'Custom Hook Types',
+    img:'https://images.pexels.com/photos/6654766/pexels-photo-6654766.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Non-standard profiles, custom base plate widths, or proprietary finishes manufactured to your design.',
+    matHead:['Material','Finish','Notes'],
+    materials:[
+      ['Brass','Any plating','Standard base material'],
+      ['Zinc Alloy','Custom coated','High-volume OEM'],
+      ['Stainless Steel','Natural or coated','Heavy-duty custom hooks'],
+    ],
+    sizeHead:['Parameter','Value','Notes'],
+    sizes:[
+      ['Base Width','To spec','Per drawing or sample'],
+      ['Hook Height','To spec','Per drawing or sample'],
+      ['Throat Width','To spec','Per drawing or sample'],
+      ['Profile','Custom','Non-standard available'],
+    ],
+  },
+  'tent-tarpaulin-set': {
+    tag:'Combo Sets', title:'Tent & Tarpaulin Set',
+    img:'https://images.pexels.com/photos/36449514/pexels-photo-36449514.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Large-bore tent eyelet paired with its matching backing washer. Washer OD is calculated to distribute load correctly across the fabric. Anti-rust coating standard.',
+    matHead:['Combination','Finish','Best For'],
+    materials:[
+      ['Zinc Alloy + Zinc Washer','Anti-rust coated','Standard outdoor use'],
+      ['Stainless + Stainless','Natural','Marine & harsh weather'],
+    ],
+    sizeHead:['Set Size','Eyelet × Washer','Application'],
+    sizes:[
+      ['Small','10 mm × 20 mm','Light tarpaulins'],
+      ['Medium','12 mm × 25 mm','Standard tarps'],
+      ['Large','15 mm × 30 mm','Heavy tarps & tents'],
+      ['X-Large','20 mm × 40 mm','Large marquee tents'],
+    ],
+  },
+  'shoes-eyelet-washer-set': {
+    tag:'Combo Sets', title:'Shoes Eyelet & Washer Set',
+    img:'https://images.pexels.com/photos/7966023/pexels-photo-7966023.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Shoe eyelet with a matched backing washer for clean front and back faces on lacing holes. Washer prevents the eyelet base from cutting into the shoe lining.',
+    matHead:['Combination','Finish','Best For'],
+    materials:[
+      ['Brass + Brass','Natural warm gold','Dress & quality shoes'],
+      ['Nickel + Nickel','Bright silver','Sports & casual footwear'],
+    ],
+    sizeHead:['Set Size','Eyelet × Washer','Typical Use'],
+    sizes:[
+      ['Size 1','4.0 mm × 8 mm','Light casual shoes'],
+      ['Size 2','4.5 mm × 10 mm','Standard shoes'],
+      ['Size 3','5.0 mm × 12 mm','Boots'],
+      ['Size 4','6.0 mm × 14 mm','Heavy boots'],
+    ],
+  },
+  'custom-matched-sets': {
+    tag:'Combo Sets', title:'Custom Matched Sets',
+    img:'https://images.pexels.com/photos/4049356/pexels-photo-4049356.jpeg?auto=compress&cs=tinysrgb&w=900',
+    desc:'Any eyelet from our range matched with the correct washer, supplied as a kit. Useful for brands standardising hardware across a product line.',
+    matHead:['Material','Finish','Notes'],
+    materials:[
+      ['Any eyelet material','Any finish','Per client specification'],
+      ['Any washer material','Matched','OD/ID ratio auto-calculated'],
+    ],
+    sizeHead:['Parameter','Value','Notes'],
+    sizes:[
+      ['Eyelet Bore','To spec','Any from our range'],
+      ['Washer OD','To spec','Auto-matched or custom'],
+      ['Washer ID','To spec','Matches eyelet bore'],
+      ['Packing','Custom','Bulk or counted sets'],
+    ],
+  },
+};
+
+function titleToKey(t) {
+  return t.toLowerCase()
+    .replace(/\s*&\s*/g, '-').replace(/[()]/g, '')
+    .replace(/\s+/g, '-').replace(/-+/g, '-')
+    .replace(/[^a-z0-9-]/g, '').replace(/^-|-$/g, '');
+}
+
+function openModal(key) {
+  var p = PRODUCTS[key];
+  if (!p) return;
+  document.getElementById('modalTag').textContent   = p.tag;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalDesc').textContent  = p.desc;
+  var img = document.getElementById('modalImg');
+  img.src = p.img; img.alt = p.title;
+  document.getElementById('modalMatHead').innerHTML  = MATERIALS.head.map(function(h){ return '<th>'+h+'</th>'; }).join('');
+  document.getElementById('modalMatBody').innerHTML  = MATERIALS.rows.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join('')+'</tr>'; }).join('');
+  document.getElementById('modalSizeHead').innerHTML = p.sizeHead.map(function(h){ return '<th>'+h+'</th>'; }).join('');
+  document.getElementById('modalSizeBody').innerHTML = p.sizes.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join('')+'</tr>'; }).join('');
+  document.getElementById('modalColorHead').innerHTML = COLORS.head.map(function(h){ return '<th>'+h+'</th>'; }).join('');
+  document.getElementById('modalColorBody').innerHTML = COLORS.rows.map(function(r){ return '<tr>'+r.map(function(c){ return '<td>'+c+'</td>'; }).join('')+'</tr>'; }).join('');
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.variant-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    openModal(titleToKey(this.querySelector('.variant-card__title').textContent.trim()));
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('modalOverlay').addEventListener('click', closeModal);
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 </script>
 <!-- ─── WHATSAPP FLOAT ─── -->
 <a href="https://wa.me/923214048785" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <span class="wa-float__pulse"></span>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.049.537 4.021 1.548 5.773L0 24l6.395-1.524A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.967-1.348l-.356-.211-3.797.906.949-3.7-.232-.368A9.792 9.792 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182 17.43 2.182 21.818 6.57 21.818 12c0 5.43-4.388 9.818-9.818 9.818z"/></svg>
 </a>
+
+<!-- ─── PRODUCT MODAL ─── -->
+<div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__box">
+    <button class="modal__close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="modalImg" src="" alt="" class="modal__img" />
+    <div class="modal__body">
+      <span id="modalTag" class="modal__tag"></span>
+      <h3 id="modalTitle" class="modal__title"></h3>
+      <p id="modalDesc" class="modal__desc"></p>
+
+      <div class="modal__section">
+        <p class="modal__section-label">Materials</p>
+        <table class="modal__table">
+          <thead><tr id="modalMatHead"></tr></thead>
+          <tbody id="modalMatBody"></tbody>
+        </table>
+      </div>
+
+      <div class="modal__section">
+        <p class="modal__section-label">Sizes</p>
+        <table class="modal__table">
+          <thead><tr id="modalSizeHead"></tr></thead>
+          <tbody id="modalSizeBody"></tbody>
+        </table>
+      </div>
+
+      <div class="modal__section">
+        <p class="modal__section-label">Colors &amp; Finishes</p>
+        <table class="modal__table">
+          <thead><tr id="modalColorHead"></tr></thead>
+          <tbody id="modalColorBody"></tbody>
+        </table>
+      </div>
+      <a href="#contact" class="modal__cta" onclick="closeModal()">
+        Request a Quote
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
